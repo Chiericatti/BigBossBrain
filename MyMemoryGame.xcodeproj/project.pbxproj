@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB215F7C20A0EE8C002241FB /* HardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB215F7B20A0EE8C002241FB /* HardViewController.swift */; };
 		CB6756E1209CEEFC0015D430 /* EasyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E0209CEEFC0015D430 /* EasyViewController.swift */; };
 		CB6756E3209CFFA60015D430 /* levelChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E2209CFFA60015D430 /* levelChoiceViewController.swift */; };
 		CB6756E5209D0CA00015D430 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E4209D0CA00015D430 /* Card.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB215F7B20A0EE8C002241FB /* HardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardViewController.swift; sourceTree = "<group>"; };
 		CB6756E0209CEEFC0015D430 /* EasyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyViewController.swift; sourceTree = "<group>"; };
 		CB6756E2209CFFA60015D430 /* levelChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = levelChoiceViewController.swift; sourceTree = "<group>"; };
 		CB6756E4209D0CA00015D430 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				CB9AA3FC209BB02E005FE979 /* ViewController.swift */,
 				CB6756E0209CEEFC0015D430 /* EasyViewController.swift */,
 				CB6756E8209D3BEA0015D430 /* MediumViewController.swift */,
+				CB215F7B20A0EE8C002241FB /* HardViewController.swift */,
 				CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */,
 				CB6756E2209CFFA60015D430 /* levelChoiceViewController.swift */,
 				CB6756E4209D0CA00015D430 /* Card.swift */,
@@ -159,6 +162,7 @@
 				CB6756E3209CFFA60015D430 /* levelChoiceViewController.swift in Sources */,
 				CB6756F120A0B9D80015D430 /* GameController.swift in Sources */,
 				CB6756EB209D3BF20015D430 /* VeryHardViewController.swift in Sources */,
+				CB215F7C20A0EE8C002241FB /* HardViewController.swift in Sources */,
 				CB6756E7209D0D490015D430 /* CardController.swift in Sources */,
 				CB9AA3FD209BB02E005FE979 /* ViewController.swift in Sources */,
 				CB6756E5209D0CA00015D430 /* Card.swift in Sources */,

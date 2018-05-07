@@ -762,7 +762,7 @@
         <!--Hard-FLIPS: 0-->
         <scene sceneID="0AR-Dv-0Bc">
             <objects>
-                <viewController id="HAl-tQ-Yf7" sceneMemberID="viewController">
+                <viewController id="HAl-tQ-Yf7" customClass="HardViewController" customModule="MyMemoryGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lnv-rx-nuF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -776,21 +776,29 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="9Zd-Vh-Pwo">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="91"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TO5-l7-cDU">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TO5-l7-cDU">
                                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="rvv-tp-RwO"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zON-FP-unW">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zON-FP-unW">
                                                         <rect key="frame" x="87.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="Xwg-By-2p0"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZ2-ic-wHi">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZ2-ic-wHi">
                                                         <rect key="frame" x="175" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="05R-jf-bKo"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEm-nk-6F0">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hEm-nk-6F0">
                                                         <rect key="frame" x="262.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="CEf-ea-apA"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -800,21 +808,29 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1G1-sQ-fFM">
                                                 <rect key="frame" x="0.0" y="96" width="345" height="91"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs8-qB-APO">
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qs8-qB-APO">
                                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="czs-1m-Pbv"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9H-Ih-ytb">
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9H-Ih-ytb">
                                                         <rect key="frame" x="87.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="wea-vq-xLC"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8j-Fo-8X2">
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8j-Fo-8X2">
                                                         <rect key="frame" x="175" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="zcc-WS-WkY"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-d6-gY6">
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-d6-gY6">
                                                         <rect key="frame" x="262.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="9vf-nE-GQq"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -824,21 +840,29 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5HT-Ly-OlB">
                                                 <rect key="frame" x="0.0" y="192" width="345" height="91"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lea-Rc-vee">
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lea-Rc-vee">
                                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="DcX-c2-G1p"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2m-jN-hjU">
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2m-jN-hjU">
                                                         <rect key="frame" x="87.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="rA8-nX-Prz"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTR-8j-7L3">
+                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTR-8j-7L3">
                                                         <rect key="frame" x="175" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="lxc-80-2eM"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfE-SE-fh9">
+                                                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfE-SE-fh9">
                                                         <rect key="frame" x="262.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="9pH-Za-Dwf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -848,21 +872,29 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FRI-2o-bH0">
                                                 <rect key="frame" x="0.0" y="288" width="345" height="91"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvi-Ai-gVG">
+                                                    <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fvi-Ai-gVG">
                                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="QgW-WV-ebX"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLk-mB-qH0">
+                                                    <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLk-mB-qH0">
                                                         <rect key="frame" x="87.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="hep-IT-wkR"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHq-Si-MOi">
+                                                    <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHq-Si-MOi">
                                                         <rect key="frame" x="175" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="ran-Z3-qYv"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4p-5I-peR">
+                                                    <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u4p-5I-peR">
                                                         <rect key="frame" x="262.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="SXP-t0-Xdj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -872,21 +904,29 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="i1D-FP-Jo1">
                                                 <rect key="frame" x="0.0" y="384" width="345" height="91"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2U-CY-ZXS">
+                                                    <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2U-CY-ZXS">
                                                         <rect key="frame" x="0.0" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="ljc-ss-fYO"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-ne-xjR">
+                                                    <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-ne-xjR">
                                                         <rect key="frame" x="87.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="68h-gB-02g"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZC-SU-Fwi">
+                                                    <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZC-SU-Fwi">
                                                         <rect key="frame" x="175" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="k27-Zp-3Nu"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-0p-BKE">
+                                                    <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-0p-BKE">
                                                         <rect key="frame" x="262.5" y="0.0" width="82.5" height="91"/>
-                                                        <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <connections>
+                                                            <action selector="buttonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="Nwc-FF-HI3"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -905,12 +945,24 @@
                                             <constraint firstItem="1G1-sQ-fFM" firstAttribute="leading" secondItem="FUt-a0-rGn" secondAttribute="leading" id="auQ-W7-i4A"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJH-YN-Hk5">
+                                        <rect key="frame" x="127" y="241" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="4Ir-7k-f5R"/>
+                                            <constraint firstAttribute="height" constant="100" id="Tis-d6-kEX"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="startButtonTapped:" destination="HAl-tQ-Yf7" eventType="touchUpInside" id="Hk5-cI-sU9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="FUt-a0-rGn" secondAttribute="trailing" constant="5" id="4b2-V4-ape"/>
                                     <constraint firstItem="FUt-a0-rGn" firstAttribute="centerY" secondItem="Sgn-Dj-0vg" secondAttribute="centerY" id="Ate-Za-MSy"/>
                                     <constraint firstItem="FUt-a0-rGn" firstAttribute="centerX" secondItem="Sgn-Dj-0vg" secondAttribute="centerX" id="QfW-Lw-Gra"/>
+                                    <constraint firstItem="bJH-YN-Hk5" firstAttribute="centerX" secondItem="Sgn-Dj-0vg" secondAttribute="centerX" id="Sk3-F5-mSi"/>
+                                    <constraint firstItem="bJH-YN-Hk5" firstAttribute="centerY" secondItem="Sgn-Dj-0vg" secondAttribute="centerY" id="b4o-6F-KBX"/>
                                     <constraint firstItem="FUt-a0-rGn" firstAttribute="leading" secondItem="Sgn-Dj-0vg" secondAttribute="leading" constant="5" id="gBo-2t-gl7"/>
                                 </constraints>
                             </view>
@@ -925,8 +977,37 @@
                         <viewLayoutGuide key="safeArea" id="3Dg-0e-q5l"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hard-FLIPS: 0" id="RQ4-rv-Huy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nrg-qN-a1C"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nrg-qN-a1C">
+                            <connections>
+                                <action selector="restartButtonTapped:" destination="HAl-tQ-Yf7" id="HF1-H4-uRr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="hardSecondView" destination="Sgn-Dj-0vg" id="P1a-rE-mR4"/>
+                        <outlet property="hardStartButton" destination="bJH-YN-Hk5" id="4y4-nV-5Ml"/>
+                        <outlet property="restartOutlet" destination="Nrg-qN-a1C" id="Egb-eH-lGj"/>
+                        <outletCollection property="cardButtonOutlet" destination="TO5-l7-cDU" collectionClass="NSMutableArray" id="Fxc-Ap-jfz"/>
+                        <outletCollection property="cardButtonOutlet" destination="zON-FP-unW" collectionClass="NSMutableArray" id="uOH-Ff-foE"/>
+                        <outletCollection property="cardButtonOutlet" destination="FZ2-ic-wHi" collectionClass="NSMutableArray" id="Cgb-Hz-HeB"/>
+                        <outletCollection property="cardButtonOutlet" destination="hEm-nk-6F0" collectionClass="NSMutableArray" id="W8f-Ca-8kX"/>
+                        <outletCollection property="cardButtonOutlet" destination="qs8-qB-APO" collectionClass="NSMutableArray" id="4M2-ZU-4km"/>
+                        <outletCollection property="cardButtonOutlet" destination="e9H-Ih-ytb" collectionClass="NSMutableArray" id="5oA-Wf-ZIt"/>
+                        <outletCollection property="cardButtonOutlet" destination="C8j-Fo-8X2" collectionClass="NSMutableArray" id="Lf3-zy-yr4"/>
+                        <outletCollection property="cardButtonOutlet" destination="a1g-d6-gY6" collectionClass="NSMutableArray" id="TvH-ad-x2f"/>
+                        <outletCollection property="cardButtonOutlet" destination="lea-Rc-vee" collectionClass="NSMutableArray" id="wrH-PD-dNP"/>
+                        <outletCollection property="cardButtonOutlet" destination="P2m-jN-hjU" collectionClass="NSMutableArray" id="QXO-af-QPh"/>
+                        <outletCollection property="cardButtonOutlet" destination="lTR-8j-7L3" collectionClass="NSMutableArray" id="obB-XU-ebi"/>
+                        <outletCollection property="cardButtonOutlet" destination="nfE-SE-fh9" collectionClass="NSMutableArray" id="Nut-A7-G63"/>
+                        <outletCollection property="cardButtonOutlet" destination="Fvi-Ai-gVG" collectionClass="NSMutableArray" id="qtp-Y8-4VU"/>
+                        <outletCollection property="cardButtonOutlet" destination="FLk-mB-qH0" collectionClass="NSMutableArray" id="Aqo-NQ-GeP"/>
+                        <outletCollection property="cardButtonOutlet" destination="gHq-Si-MOi" collectionClass="NSMutableArray" id="wVg-la-hQq"/>
+                        <outletCollection property="cardButtonOutlet" destination="u4p-5I-peR" collectionClass="NSMutableArray" id="cb6-b9-ivt"/>
+                        <outletCollection property="cardButtonOutlet" destination="Z2U-CY-ZXS" collectionClass="NSMutableArray" id="8IM-GC-sTs"/>
+                        <outletCollection property="cardButtonOutlet" destination="gC1-ne-xjR" collectionClass="NSMutableArray" id="YK5-1A-RTU"/>
+                        <outletCollection property="cardButtonOutlet" destination="cZC-SU-Fwi" collectionClass="NSMutableArray" id="Oxo-RT-xm6"/>
+                        <outletCollection property="cardButtonOutlet" destination="b7Z-0p-BKE" collectionClass="NSMutableArray" id="aMN-Vd-D9b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWV-2j-ZCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
