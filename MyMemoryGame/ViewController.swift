@@ -26,6 +26,30 @@ class ViewController: UIViewController {
             
         }
     }
-
+    
+    @IBAction func pokemonImages(_ sender: Any) {
+        GameController.shared.imageType = 1
+    }
+    
+    @IBAction func flagImages(_ sender: Any) {
+        GameController.shared.imageType = 2
+    }
+    
+    @IBAction func emojiImages(_ sender: Any) {
+        GameController.shared.imageType = 3
+    }
+    
+    @IBAction func socialMediaImages(_ sender: Any) {
+        GameController.shared.imageType = 4
+    }
+    
+    @IBAction func herosImage(_ sender: Any) {
+        GameController.shared.imageType = 5
+    }
+    
+    @IBAction func christmasImages(_ sender: Any) {
+        GameController.shared.imageType = 6
+    }
+    
 }
 

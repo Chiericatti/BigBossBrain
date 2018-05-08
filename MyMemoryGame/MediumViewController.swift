@@ -22,7 +22,7 @@ class MediumViewController: UIViewController {
     
     var flipCount = 0 {
         didSet {
-            self.navigationItem.title = "FLIPS: \(flipCount)"
+            self.navigationItem.title = "FLIPS: \(flipCount/2)"
         }
     }
     
@@ -37,10 +37,12 @@ class MediumViewController: UIViewController {
         mediumStartButton.layer.cornerRadius = mediumStartButton.bounds.size.width / 2
         mediumStartButton.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
        
-        
         guard let allButtons = GameController.shared.allButtons else { return }
         for button in allButtons {
             button.isEnabled = false
+            button.isHidden = true
+            
+            
         }
     }
     
@@ -53,6 +55,7 @@ class MediumViewController: UIViewController {
         guard let allButtons = GameController.shared.allButtons else { return }
         for button in allButtons {
             button.isEnabled = true
+            button.isHidden = false
         }
         GameController.shared.reloadGame()
         

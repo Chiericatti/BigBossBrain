@@ -24,7 +24,7 @@ class EasyViewController: UIViewController {
     
     var flipCount = 0 {
         didSet {
-            self.navigationItem.title = "FLIPS: \(flipCount)"
+            self.navigationItem.title = "FLIPS: \(flipCount/2)"
         }
     }
     
@@ -44,6 +44,8 @@ class EasyViewController: UIViewController {
         guard let allButtons = GameController.shared.allButtons else { return }
         for button in allButtons {
             button.isEnabled = false
+            button.isHidden = true
+    
         }
     }
     
@@ -55,7 +57,9 @@ class EasyViewController: UIViewController {
         guard let allButtons = GameController.shared.allButtons else { return }
         for button in allButtons {
             button.isEnabled = true
+            button.isHidden = false
         }
+        
         GameController.shared.reloadGame()
         
     }
