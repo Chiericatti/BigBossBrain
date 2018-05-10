@@ -20,6 +20,9 @@
 		CB9AA400209BB02E005FE979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9AA3FE209BB02E005FE979 /* Main.storyboard */; };
 		CB9AA402209BB030005FE979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9AA401209BB030005FE979 /* Assets.xcassets */; };
 		CB9AA405209BB030005FE979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9AA403209BB030005FE979 /* LaunchScreen.storyboard */; };
+		CB9BF4F020A366AB00062BEE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9BF4EF20A366AB00062BEE /* GameKit.framework */; };
+		CB9BF51320A3C1FA00062BEE /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BF51220A3C1FA00062BEE /* Score.swift */; };
+		CBCB87AB20A247B8006CEDB9 /* GameTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB87AA20A247B8006CEDB9 /* GameTypeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		CB9AA401209BB030005FE979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB9AA404209BB030005FE979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB9AA406209BB030005FE979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB9BF4EF20A366AB00062BEE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		CB9BF51220A3C1FA00062BEE /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		CBCB87AA20A247B8006CEDB9 /* GameTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9BF4F020A366AB00062BEE /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +63,7 @@
 			children = (
 				CB9AA3F9209BB02E005FE979 /* MyMemoryGame */,
 				CB9AA3F8209BB02E005FE979 /* Products */,
+				CB9BF4EE20A366AB00062BEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,22 +78,72 @@
 		CB9AA3F9209BB02E005FE979 /* MyMemoryGame */ = {
 			isa = PBXGroup;
 			children = (
-				CB9AA3FA209BB02E005FE979 /* AppDelegate.swift */,
+				CB9AA3FE209BB02E005FE979 /* Main.storyboard */,
+				CB9BF51420A3CFDB00062BEE /* Models */,
+				CB9BF51520A3CFEF00062BEE /* Controllers */,
+				CB9BF51820A3D05500062BEE /* Resources */,
+			);
+			path = MyMemoryGame;
+			sourceTree = "<group>";
+		};
+		CB9BF4EE20A366AB00062BEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB9BF4EF20A366AB00062BEE /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB9BF51420A3CFDB00062BEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB6756E4209D0CA00015D430 /* Card.swift */,
+				CB9BF51220A3C1FA00062BEE /* Score.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB9BF51520A3CFEF00062BEE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB9BF51720A3D02700062BEE /* ViewControllers */,
+				CB9BF51620A3D01600062BEE /* ModelControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CB9BF51620A3D01600062BEE /* ModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CB6756E6209D0D490015D430 /* CardController.swift */,
+				CB6756F020A0B9D80015D430 /* GameController.swift */,
+			);
+			path = ModelControllers;
+			sourceTree = "<group>";
+		};
+		CB9BF51720A3D02700062BEE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				CB9AA3FC209BB02E005FE979 /* ViewController.swift */,
+				CBCB87AA20A247B8006CEDB9 /* GameTypeViewController.swift */,
 				CB6756E0209CEEFC0015D430 /* EasyViewController.swift */,
 				CB6756E8209D3BEA0015D430 /* MediumViewController.swift */,
 				CB215F7B20A0EE8C002241FB /* HardViewController.swift */,
 				CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */,
 				CB6756E2209CFFA60015D430 /* levelChoiceViewController.swift */,
-				CB6756E4209D0CA00015D430 /* Card.swift */,
-				CB6756E6209D0D490015D430 /* CardController.swift */,
-				CB6756F020A0B9D80015D430 /* GameController.swift */,
-				CB9AA3FE209BB02E005FE979 /* Main.storyboard */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CB9BF51820A3D05500062BEE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				CB9AA401209BB030005FE979 /* Assets.xcassets */,
+				CB9AA3FA209BB02E005FE979 /* AppDelegate.swift */,
 				CB9AA403209BB030005FE979 /* LaunchScreen.storyboard */,
 				CB9AA406209BB030005FE979 /* Info.plist */,
 			);
-			path = MyMemoryGame;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +178,11 @@
 				TargetAttributes = {
 					CB9AA3F6209BB02E005FE979 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -161,6 +224,7 @@
 			files = (
 				CB6756E3209CFFA60015D430 /* levelChoiceViewController.swift in Sources */,
 				CB6756F120A0B9D80015D430 /* GameController.swift in Sources */,
+				CBCB87AB20A247B8006CEDB9 /* GameTypeViewController.swift in Sources */,
 				CB6756EB209D3BF20015D430 /* VeryHardViewController.swift in Sources */,
 				CB215F7C20A0EE8C002241FB /* HardViewController.swift in Sources */,
 				CB6756E7209D0D490015D430 /* CardController.swift in Sources */,
@@ -168,6 +232,7 @@
 				CB6756E5209D0CA00015D430 /* Card.swift in Sources */,
 				CB9AA3FB209BB02E005FE979 /* AppDelegate.swift in Sources */,
 				CB6756E9209D3BEA0015D430 /* MediumViewController.swift in Sources */,
+				CB9BF51320A3C1FA00062BEE /* Score.swift in Sources */,
 				CB6756E1209CEEFC0015D430 /* EasyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +379,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EDRWFSBTAV;
-				INFOPLIST_FILE = MyMemoryGame/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyMemoryGame/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,7 +397,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EDRWFSBTAV;
-				INFOPLIST_FILE = MyMemoryGame/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MyMemoryGame/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -14,8 +14,8 @@ class CardController {
     
     var cards: [Card] = []
     
-    func createNewCardWith(cardImageName: String, cardTag: Int) {
-        let card = Card(cardImageName: cardImageName, cardTag: cardTag)
+    func createNewCardWith(cardImageName: String) {
+        let card = Card(cardImageName: cardImageName)
         cards.append(card)
     }
 }

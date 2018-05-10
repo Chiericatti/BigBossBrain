@@ -12,11 +12,9 @@ class Card {
     
     var isFaceUp: Bool = false
     let cardImageName: String
-    let cardTag: Int
     
-    init(cardImageName: String, cardTag: Int) {
+    init(cardImageName: String) {
         self.cardImageName = cardImageName
-        self.cardTag = cardTag
     }
     
     

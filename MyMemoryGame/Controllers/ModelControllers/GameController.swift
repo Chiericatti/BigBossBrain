@@ -7,15 +7,38 @@
 //
 
 import UIKit
+import GameKit
 
+protocol DataModelDelegate: class {
+    func didRecieveDataUpdate(data: Int)
+}
 
 class GameController {
     
+    // MARK: - Properties
+    
+    let LEADERBOARD_ID = "com.score.matchpro"
+    
+    weak var delegate: DataModelDelegate?
+
     static let shared = GameController()
     
+    var allButtons: [UIButton]?
+    
+    var score = Score(score: 0)
+    
+    var randomCardIndex = 0
+    var randomImageIndex = 0
+    var totalScoreToWin = 0
+    
+    var gameType = 0
     var imageType = 0
     var levelMode = 0
+    
+    var arrayToCompare = [String]()
     var arrayToBeUsed = [String]()
+    
+    var arrayToBeUsedForBackImage = ["myice2-melting-1551367","myice-2-1383840","mygrunge-paint-2-1615296","myplay-with-paint-4-1163287","myultimate-free-photo-1156750","mycoton-texture-1161474"]
     
     var easyDict = [
         1 : ["_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle"],
@@ -53,18 +76,24 @@ class GameController {
         6 : ["_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Baubles","_Icicle_","_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Baubles","_Icicle_"]
     ]
     
-    var allButtons: [UIButton]?
+    // MARK: - Delegate Function to pass information
+
+    func requestData() {
+        let data = GameController.shared.totalScoreToWin
+        delegate?.didRecieveDataUpdate(data: data)
+    }
     
-    var randomCardIndex = 0
-    
-    var arrayToCompare = [String]()
+    // MARK: - Game Funcations
     
     func setbackOfImages() {
         guard let arrayOfButtons =  allButtons else { return }
         for button in arrayOfButtons {
-            button.setImage(#imageLiteral(resourceName: "if_CMYK_1994549"), for: .normal)
+            
+            guard let buttonImage = button.imageView else { return }
+            buttonImage.layer.cornerRadius = 15
+//            button.setImage(UIImage(named: arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
             button.isEnabled = true
-
+            
         }
     }
     
@@ -72,18 +101,25 @@ class GameController {
         if arrayToCompare.count == 2 {
             if arrayToCompare[0] == arrayToCompare[1]  {
                 arrayToCompare.removeAll()
+                totalScoreToWin += 1
+                print(totalScoreToWin)
             }
             else if arrayToCompare[0] != arrayToCompare[1] {
                 setbackOfImages()
                 arrayToCompare.removeAll()
+                totalScoreToWin = 0
+                print(totalScoreToWin)
             }
         }
     }
     
     func reloadGame() {
+        saveData()
+        randomImageIndex = Int(arc4random_uniform(UInt32(arrayToBeUsedForBackImage.count)))
         CardController.shared.cards.removeAll()
         randomizeCardImages()
         arrayToCompare.removeAll()
+        totalScoreToWin = 0
         
     }
     
@@ -144,6 +180,30 @@ class GameController {
         }
     }
     
+    func setTimerForBackOfImages() {
+        switch levelMode {
+        case 1:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+                self.setbackOfImages()
+            }
+        case 2:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.3) {
+                self.setbackOfImages()
+            }
+        case 3:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
+                self.setbackOfImages()
+            }
+        case 4:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
+                self.setbackOfImages()
+            }
+        default: return
+        }
+    }
+    
+    // MARK: - Randomize func
+    
     func randomizeCardImages() {
         
         setImageAndLevel()
@@ -152,16 +212,89 @@ class GameController {
             guard let mediumAllButtons = allButtons else { return }
             for button in mediumAllButtons {
                 randomCardIndex = Int(arc4random_uniform(UInt32(arrayToBeUsed.count)))
-                CardController.shared.createNewCardWith(cardImageName: arrayToBeUsed[randomCardIndex], cardTag: button.tag)
+                CardController.shared.createNewCardWith(cardImageName: arrayToBeUsed[randomCardIndex])
                 print(self.arrayToBeUsed[self.randomCardIndex])
                 button.setImage(UIImage(named: self.arrayToBeUsed[self.randomCardIndex]), for: .normal)
-                guard let buttonImage = button.imageView else { return }
-                buttonImage.layer.cornerRadius = 20
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    self.setbackOfImages()
-                }
+                button.layer.cornerRadius = 15
+                button.layer.borderWidth = 2.0
+                button.layer.borderColor = UIColor.black.cgColor
+
+                setTimerForBackOfImages()
                 arrayToBeUsed.remove(at: self.randomCardIndex)
             }
         }
     }
+    
+    // MARK: - Game Center
+    
+    func addPointToScoreAndSubmit() {
+        GameController.shared.score.score += 1
+        let myNewScore = GKScore(leaderboardIdentifier: GameController.shared.LEADERBOARD_ID)
+        
+        myNewScore.value = Int64(GameController.shared.score.score)
+        
+        GKScore.report([myNewScore]) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                print("New Score submitted to your Leaderboard!")
+                print("GameController score:",GameController.shared.score.score)
+            }
+        }
+    }
+    
+    // MARK: - Save to persistence
+    
+    func fileURL() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fullURL = path.appendingPathComponent("game").appendingPathExtension("json")
+        return fullURL
+        
+    }
+    
+    func saveData() {
+        do {
+            let jsonEncoder = JSONEncoder()
+            let data = try jsonEncoder.encode(GameController.shared.score)
+            try data.write(to: fileURL())
+        } catch {
+            print(error)
+        }
+    }
+    
+    func load() -> Score {
+        let jsonDecoder = JSONDecoder()
+        do {
+            let data = try Data(contentsOf: fileURL())
+            let score = try jsonDecoder.decode(Score.self, from: data)
+            return score
+        } catch {
+            print(error)
+        }
+        return Score(score: 0)
+    }
+    
+    init() {
+        self.score = load()
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
