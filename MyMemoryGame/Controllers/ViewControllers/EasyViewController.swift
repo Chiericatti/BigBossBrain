@@ -34,6 +34,7 @@ class EasyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
 
         dataModel.delegate = self
         
@@ -52,6 +53,11 @@ class EasyViewController: UIViewController {
             button.isEnabled = false
             button.isHidden = true
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: - Actions
@@ -80,6 +86,7 @@ class EasyViewController: UIViewController {
         UIView.transition(with: sender, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
         let card = CardController.shared.cards[sender.tag - 1]
         sender.setImage(UIImage(named: card.cardImageName), for: .normal)
+        
         GameController.shared.arrayToCompare.append(card.cardImageName)
         sender.isEnabled = false
         sender.adjustsImageWhenDisabled = false
@@ -97,6 +104,7 @@ class EasyViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             GameController.shared.addPointToScoreAndSubmit()
             GameController.shared.reloadGame()
+            self.flipCount = 0
             
         }))
         

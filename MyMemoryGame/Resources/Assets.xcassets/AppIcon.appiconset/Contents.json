@@ -33,7 +33,7 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "puzzle2(120).png",
+      "filename" : "puzzleWithBackground 2.jpg",
       "scale" : "2x"
     },
     {
@@ -89,7 +89,7 @@
     {
       "size" : "1024x1024",
       "idiom" : "ios-marketing",
-      "filename" : "puzzle1024.png",
+      "filename" : "puzzleWithBackground.jpg",
       "scale" : "1x"
     }
   ],

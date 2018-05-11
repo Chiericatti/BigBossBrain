@@ -34,6 +34,7 @@ class MediumViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         
         dataModel.delegate = self
         
@@ -52,6 +53,11 @@ class MediumViewController: UIViewController {
             button.isEnabled = false
             button.isHidden = true
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: - Actions
@@ -97,6 +103,7 @@ class MediumViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             GameController.shared.addPointToScoreAndSubmit()
             GameController.shared.reloadGame()
+            self.flipCount = 0
             
         }))
         

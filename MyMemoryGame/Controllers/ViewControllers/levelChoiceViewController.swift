@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import GameKit
 
-class levelChoiceViewController: UIViewController {
+class levelChoiceViewController: UIViewController, GKGameCenterControllerDelegate {
 
     // MARK: - Outlets
     
@@ -48,8 +49,40 @@ class levelChoiceViewController: UIViewController {
         mediumButton.layer.cornerRadius = 15
         mediumButton.layer.borderColor = UIColor.black.cgColor
         mediumButton.layer.borderWidth = 3.0
+        
+        addNavBarImage()
     }
 
+    // MARK: - Game Center
+    
+    func addNavBarImage() {
+        //create a new button
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        button.setImage(UIImage(named: "leaderboard-48"), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(gameCenterLeaderboard), for: UIControlEvents.touchUpInside)
+        //set frame
+        //button.frame = CGRect(x: 100, y: 10, width: 10, height: 10)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func gameCenterLeaderboard() {
+        
+        let gcVC = GKGameCenterViewController()
+        gcVC.gameCenterDelegate = self
+        gcVC.viewState = .leaderboards
+        gcVC.leaderboardIdentifier = GameController.shared.LEADERBOARD_ID
+        present(gcVC, animated: true, completion: nil)
+    }
+    
     // MARK: - Actions
     
     @IBAction func easyButtonTapped(_ sender: Any) {

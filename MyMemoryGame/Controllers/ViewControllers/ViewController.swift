@@ -13,8 +13,8 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
 
     // MARK: - Properties
     
-    var gcEnabled = Bool()
-    var gcDefaultLeaderBoard = String()
+//    var gcEnabled = Bool()
+//    var gcDefaultLeaderBoard = String()
 
     // MARK: - Outlets
     
@@ -26,50 +26,28 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     @IBOutlet weak var viewFive: UIView!
     @IBOutlet weak var viewSix: UIView!
     
+    @IBOutlet weak var flagButtonOutlet: UIButton!
+    @IBOutlet weak var socialMediaButtonOutlet: UIButton!
+    @IBOutlet weak var heroButtonOutlet: UIButton!
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
-        authenticateLocalPlayer()
+        self.navigationController?.isNavigationBarHidden = false
+//        authenticateLocalPlayer()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: - Game Center
     
-    func authenticateLocalPlayer() {
-        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
-        
-        localPlayer.authenticateHandler = {(ViewController, error) -> Void in
-            if((ViewController) != nil) {
-                
-                // 1. Show login if player is not logged in
-                self.present(ViewController!, animated: true, completion: nil)
-                
-            } else if (localPlayer.isAuthenticated) {
-                
-                // 2. Player is already authenticated & logged in, load game center
-                self.gcEnabled = true
-                
-                // Get the default leaderboard ID
-                localPlayer.loadDefaultLeaderboardIdentifier(completionHandler: { (leaderboardIdentifer, error) in
-                    if error != nil { print(error!)
-                    } else { self.gcDefaultLeaderBoard = leaderboardIdentifer! }
-                })
-                
-            } else {
-                
-                // 3. Game center is not enabled on the users device
-                self.gcEnabled = false
-                print("Local player could not be authenticated!")
-                print(error!)
-            }
-        }
-    }
     
-    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
-        gameCenterViewController.dismiss(animated: true, completion: nil)
-    }
     
     // MARK: - Functions
     
@@ -80,7 +58,48 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
         viewFour.layer.cornerRadius = 15
         viewFive.layer.cornerRadius = 15
         viewSix.layer.cornerRadius = 15
+        
+        guard let heroImage = heroButtonOutlet.imageView else { return }
+        guard let flagImage = flagButtonOutlet.imageView else { return }
+        guard let socialMediaImage = socialMediaButtonOutlet.imageView else { return }
+        heroImage.layer.cornerRadius = 10
+        flagImage.layer.cornerRadius = 10
+        socialMediaImage.layer.cornerRadius = 10
+        addNavBarImage()
+        
+        
     }
+    
+    func addNavBarImage() {
+        //create a new button
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        button.setImage(UIImage(named: "leaderboard-48"), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(gameCenterLeaderboard), for: UIControlEvents.touchUpInside)
+        //set frame
+        //button.frame = CGRect(x: 100, y: 10, width: 10, height: 10)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    // MARK: - Game Center
+
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func gameCenterLeaderboard() {
+        
+        let gcVC = GKGameCenterViewController()
+        gcVC.gameCenterDelegate = self
+        gcVC.viewState = .leaderboards
+        gcVC.leaderboardIdentifier = GameController.shared.LEADERBOARD_ID
+        present(gcVC, animated: true, completion: nil)
+    }
+    
     
     // MARK: - Actions
     
@@ -108,14 +127,6 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
         GameController.shared.imageType = 6
     }
     
-    // MARK: - Game Center Actions
-    
-    @IBAction func gameCenter(_ sender: Any) {
-        let gcVC = GKGameCenterViewController()
-        gcVC.gameCenterDelegate = self
-        gcVC.viewState = .leaderboards
-        gcVC.leaderboardIdentifier = GameController.shared.LEADERBOARD_ID
-        present(gcVC, animated: true, completion: nil)
-    }
 }
+    
 

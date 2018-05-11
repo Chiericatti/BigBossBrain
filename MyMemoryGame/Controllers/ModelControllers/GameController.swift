@@ -42,38 +42,39 @@ class GameController {
     
     var easyDict = [
         1 : ["_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle"],
-        2 : ["Brazil","EUA","Belgica","Italia","Portugal","France","Brazil","EUA","Belgica","Italia","Portugal","France"],
+        2 : ["_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States","_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States"],
+        
         3 : ["if_joy","if_cry","if_angry","if_love","if_wink","if_surprise","if_joy","if_cry","if_angry","if_love","if_wink","if_surprise"],
-        4 : ["if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype","if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype"],
-        5 : ["if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863","if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863"],
-        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer"]
+        4 : ["if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram","if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram"],
+        5 : ["_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH","_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH"],
+        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer","_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer"]
     ]
     
     var mediumDict = [
         1 :["_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_jigglypuff","_zubat","_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_jigglypuff","_zubat"],
-        2 : ["Brazil","EUA","Mexico","Italia","Holanda","France","Argentina","Espanha","Brazil","EUA","Mexico","Italia","Holanda","France","Argentina","Espanha"],
+        2 : ["_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States","_Argentina","_Italy","_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States","_Argentina","_Italy"],
         3 : ["if_joy","if_cry","if_angry","if_love","if_wink","if_surprise","if_sleepy","if_shy","if_joy","if_cry","if_angry","if_love","if_wink","if_surprise","if_sleepy","if_shy"],
-        4 : ["if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype","if_reddit","if_paypal","if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype","if_reddit","if_paypal"],
-        5 : ["if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863","if_JD-15_2624892","if_JD-09_2624896","if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863","if_JD-15_2624892","if_JD-09_2624896"],
-        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man"]
+        4 : ["if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram","if_Facebook","if_Amazon","if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram","if_Facebook","if_Amazon"],
+        5 : ["_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH","_SPIDERMAN","_Green_Lantern","_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH","_SPIDERMAN","_Green_Lantern"],
+        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer","_Wreath","_Gingerbread_Man"]
     ]
     
     var hardDict = [
         1: ["_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_jigglypuff","_zubat","_rattata","_bellsprout","_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_jigglypuff","_zubat","_rattata","_bellsprout"],
-        2 : ["Brazil","EUA","Mexico","Italia","Holanda","France","Argentina","Espanha","Alemanha","Belgica","Brazil","EUA","Mexico","Italia","Holanda","France","Argentina","Espanha","Alemanha","Belgica"],
+        2 : ["_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States","_Argentina","_Italy","_Canada","_Colombia","_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States","_Argentina","_Italy","_Canada","_Colombia"],
         3 : ["if_joy","if_cry","if_angry","if_love","if_wink","if_surprise","if_sleepy","if_shy","if_sad","if_happy","if_joy","if_cry","if_angry","if_love","if_wink","if_surprise","if_sleepy","if_shy","if_sad","if_happy"],
-        4 : ["if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype","if_reddit","if_paypal","if_github","if_facebook","if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype","if_reddit","if_paypal","if_github","if_facebook"],
-        5 : ["if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863","if_JD-15_2624892","if_JD-09_2624896","if_JD-08_2624860","if_JD-14_2624893","if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863","if_JD-15_2624892","if_JD-09_2624896","if_JD-08_2624860","if_JD-14_2624893"],
-        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell"]
+        4 : ["if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram","if_Facebook","if_Amazon","if_Airbnb","if_Skype","if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram","if_Facebook","if_Amazon","if_Airbnb","if_Skype"],
+        5 : ["_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH","_SPIDERMAN","_Green_Lantern","_Deadpool","_Black_Widow","_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH","_SPIDERMAN","_Green_Lantern","_Deadpool","_Black_Widow"],
+        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell"]
     ]
     
     var veryHardDict =  [
         1 : ["_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_jigglypuff","_zubat","_weedle","_venonat","_rattata","_bellsprout","_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_jigglypuff","_zubat","_weedle","_venonat","_rattata","_bellsprout"],
-        2 :["Brazil","EUA","Mexico","Italia","Holanda","France","Argentina","Espanha","Alemanha","Belgica","Colombia","Portugal","Brazil","EUA","Mexico","Italia","Holanda","France","Argentina","Espanha","Alemanha","Belgica","Colombia","Portugal"],
+        2 :["_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States","_Argentina","_Italy","_Canada","_Colombia","_Mexico","_Belgium","_Brazil","_France","_Germany","_Spain","_United-Kingdom","_United-States","_Argentina","_Italy","_Canada","_Colombia","_Mexico","_Belgium"],
         3 : ["if_joy","if_cry","if_angry","if_love","if_wink","if_surprise","if_sleepy","if_shy","if_sad","if_happy","if_dead","if_embarrass","if_joy","if_cry","if_angry","if_love","if_wink","if_surprise","if_sleepy","if_shy","if_sad","if_happy","if_dead","if_embarrass"],
-        4 : ["if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype","if_reddit","if_paypal","if_github","if_facebook","if_evernote","if_amazon","if_youtube","if_yahoo","if_whatsapp","if_twitter","if_snapchat","if_skype","if_reddit","if_paypal","if_github","if_facebook","if_evernote","if_amazon"],
-        5 : ["if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863","if_JD-15_2624892","if_JD-09_2624896","if_JD-08_2624860","if_JD-14_2624893","if_JD-13_2624862","if_JD-11_2624861","if_JD-28_2624884","if_JD-22_2624865","if_JD-21_2624888","if_JD-20_2624889","if_JD-18_2624890","if_JD-16_2624863","if_JD-15_2624892","if_JD-09_2624896","if_JD-08_2624860","if_JD-14_2624893","if_JD-13_2624862","if_JD-11_2624861"],
-        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Baubles","_Icicle_","_Xmas_Tree","_Stocking","_Snowman","_Snow_Globe","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Baubles","_Icicle_"]
+        4 : ["if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram","if_Facebook","if_Amazon","if_Airbnb","if_Skype","if_Github","if_Reddit","if_YouTube","if_Apple","if_WhatsApp","if_Twitter","if_Snapchat","if_Instagram","if_Facebook","if_Amazon","if_Airbnb","if_Skype","if_Github","if_Reddit"],
+        5 : ["_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH","_SPIDERMAN","_Green_Lantern","_Deadpool","_Black_Widow","_PUNISHER","_Superman","_BATMAN","_Ironman","_Captain_America","_Wolverine","_WONDER_WOMEN","_THE_FLASH","_SPIDERMAN","_Green_Lantern","_Deadpool","_Black_Widow","_PUNISHER","_Superman"],
+        6 : ["_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Hat","_NothPole","_Xmas_Tree","_Stocking","_Snowman","_Present","_Santa","_Reindeer","_Wreath","_Gingerbread_Man","_Candy_Cane","_Bell","_Hat","_NothPole"]
     ]
     
     // MARK: - Delegate Function to pass information
@@ -91,7 +92,7 @@ class GameController {
             
             guard let buttonImage = button.imageView else { return }
             buttonImage.layer.cornerRadius = 15
-//            button.setImage(UIImage(named: arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+            button.setImage(UIImage(named: arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
             button.isEnabled = true
             
         }
@@ -215,6 +216,23 @@ class GameController {
                 CardController.shared.createNewCardWith(cardImageName: arrayToBeUsed[randomCardIndex])
                 print(self.arrayToBeUsed[self.randomCardIndex])
                 button.setImage(UIImage(named: self.arrayToBeUsed[self.randomCardIndex]), for: .normal)
+                guard let buttonImage = button.imageView else { return }
+                buttonImage.layer.cornerRadius = 15
+//                button.backgroundColor = UIColor.lightGray
+                
+//                if self.arrayToBeUsed[self.randomCardIndex] == "Brazil" {
+//                    button.backgroundColor = UIColor.red
+//                } else if self.arrayToBeUsed[self.randomCardIndex] == "EUA" {
+//                    button.backgroundColor = UIColor.orange
+//                } else if self.arrayToBeUsed[self.randomCardIndex] == "Belgica" {
+//                    button.backgroundColor = UIColor.purple
+//                } else if self.arrayToBeUsed[self.randomCardIndex] == "Italia" {
+//                    button.backgroundColor = UIColor.white
+//                } else if self.arrayToBeUsed[self.randomCardIndex] == "Portugal" {
+//                    button.backgroundColor = UIColor.green
+//                } else if self.arrayToBeUsed[self.randomCardIndex] == "France" {
+//                    button.backgroundColor = UIColor.blue
+//                }
                 button.layer.cornerRadius = 15
                 button.layer.borderWidth = 2.0
                 button.layer.borderColor = UIColor.black.cgColor
