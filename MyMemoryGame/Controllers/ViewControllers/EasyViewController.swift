@@ -87,6 +87,11 @@ class EasyViewController: UIViewController {
         let card = CardController.shared.cards[sender.tag - 1]
         sender.setImage(UIImage(named: card.cardImageName), for: .normal)
         
+        
+        GameController.shared.gameTypeOneButtonsTag.append(sender.tag)
+        GameController.shared.gameTypeTwoButtonsTag.append(sender.tag)
+        print(GameController.shared.gameTypeOneButtonsTag)
+        
         GameController.shared.arrayToCompare.append(card.cardImageName)
         sender.isEnabled = false
         sender.adjustsImageWhenDisabled = false
@@ -102,8 +107,8 @@ class EasyViewController: UIViewController {
         let alert = UIAlertController(title: "Congrats!! You finished the game.", message: "One point was added to your total score.", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            GameController.shared.addPointToScoreAndSubmit()
             GameController.shared.reloadGame()
+            GameController.shared.addPointToScoreAndSubmit()
             self.flipCount = 0
             
         }))
@@ -117,7 +122,11 @@ class EasyViewController: UIViewController {
 extension EasyViewController: DataModelDelegate {
     func didRecieveDataUpdate(data: Int) {
         if data == 6 {
-            createVictoryAlert()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                
+            GameController.shared.setbackOfImages()
+                self.createVictoryAlert()
+            }
             GameController.shared.totalScoreToWin = 0
         }
         print("Data:",data)

@@ -23,6 +23,13 @@ class GameController {
 
     static let shared = GameController()
     
+    
+    
+    
+    var gameTypeOneButtonsTag = [Int]()
+    var gameTypeTwoButtonsTag = [Int]()
+    
+    
     var allButtons: [UIButton]?
     
     var score = Score(score: 0)
@@ -38,7 +45,7 @@ class GameController {
     var arrayToCompare = [String]()
     var arrayToBeUsed = [String]()
     
-    var arrayToBeUsedForBackImage = ["myice2-melting-1551367","myice-2-1383840","mygrunge-paint-2-1615296","myplay-with-paint-4-1163287","myultimate-free-photo-1156750","mycoton-texture-1161474"]
+    var arrayToBeUsedForBackImage = ["myice2-melting-1551367","mygrunge-paint-2-1615296","myultimate-free-photo-1156750","mycoton-texture-1161474","rainbow-1-1192968","orange-golden-leaf-1194347","the-blue-sphere-1197710","water-effect-1197569","falling-gras-1548881"]
     
     var easyDict = [
         1 : ["_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle"],
@@ -88,37 +95,79 @@ class GameController {
     
     func setbackOfImages() {
         guard let arrayOfButtons =  allButtons else { return }
+        
         for button in arrayOfButtons {
             
-            guard let buttonImage = button.imageView else { return }
-            buttonImage.layer.cornerRadius = 15
+            //            guard let buttonImage = button.imageView else { return }
+            //            buttonImage.layer.cornerRadius = 15
+            
+            
+            
+            if gameTypeTwoButtonsTag.count > 1 {
+                if gameTypeTwoButtonsTag.contains(button.tag) {
+                    UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
+                    button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+                    button.isEnabled = true
+                }
+                
+            }
+            
             button.setImage(UIImage(named: arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
             button.isEnabled = true
             
         }
+        gameTypeTwoButtonsTag.removeAll()
+        
+        
+        
     }
+            
+    
     
     func compareCards() {
         if arrayToCompare.count == 2 {
             if arrayToCompare[0] == arrayToCompare[1]  {
                 arrayToCompare.removeAll()
+                gameTypeOneButtonsTag.removeAll()
                 totalScoreToWin += 1
                 print(totalScoreToWin)
             }
             else if arrayToCompare[0] != arrayToCompare[1] {
-                setbackOfImages()
+                if gameType == 1 {
+                    
+                    guard let arrayOfTwoButtons = allButtons else { return }
+                    for button in arrayOfTwoButtons {
+                        if gameTypeOneButtonsTag.count == 2 {
+                            
+                            if button.tag == self.gameTypeOneButtonsTag[0] || button.tag == self.gameTypeOneButtonsTag[1] {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
+                                    button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+                                    button.isEnabled = true
+                                }
+                                
+                            }
+                        }
+                    }
+                    
+                    gameTypeOneButtonsTag.removeAll()
+                    
+                } else if gameType == 2 {
+                    
+                    setbackOfImages()
+                    totalScoreToWin = 0
+                }
                 arrayToCompare.removeAll()
-                totalScoreToWin = 0
                 print(totalScoreToWin)
             }
         }
     }
     
     func reloadGame() {
-        saveData()
-        randomImageIndex = Int(arc4random_uniform(UInt32(arrayToBeUsedForBackImage.count)))
+//        randomImageIndex = Int(arc4random_uniform(UInt32(arrayToBeUsedForBackImage.count)))
         CardController.shared.cards.removeAll()
         randomizeCardImages()
+//        saveData()
         arrayToCompare.removeAll()
         totalScoreToWin = 0
         
@@ -182,6 +231,7 @@ class GameController {
     }
     
     func setTimerForBackOfImages() {
+        
         switch levelMode {
         case 1:
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
@@ -217,26 +267,12 @@ class GameController {
                 print(self.arrayToBeUsed[self.randomCardIndex])
                 button.setImage(UIImage(named: self.arrayToBeUsed[self.randomCardIndex]), for: .normal)
                 guard let buttonImage = button.imageView else { return }
-                buttonImage.layer.cornerRadius = 15
-//                button.backgroundColor = UIColor.lightGray
-                
-//                if self.arrayToBeUsed[self.randomCardIndex] == "Brazil" {
-//                    button.backgroundColor = UIColor.red
-//                } else if self.arrayToBeUsed[self.randomCardIndex] == "EUA" {
-//                    button.backgroundColor = UIColor.orange
-//                } else if self.arrayToBeUsed[self.randomCardIndex] == "Belgica" {
-//                    button.backgroundColor = UIColor.purple
-//                } else if self.arrayToBeUsed[self.randomCardIndex] == "Italia" {
-//                    button.backgroundColor = UIColor.white
-//                } else if self.arrayToBeUsed[self.randomCardIndex] == "Portugal" {
-//                    button.backgroundColor = UIColor.green
-//                } else if self.arrayToBeUsed[self.randomCardIndex] == "France" {
-//                    button.backgroundColor = UIColor.blue
-//                }
-                button.layer.cornerRadius = 15
+                buttonImage.layer.cornerRadius = 12
+                button.layer.cornerRadius = 12
                 button.layer.borderWidth = 2.0
                 button.layer.borderColor = UIColor.black.cgColor
-
+                button.isEnabled = false
+                button.adjustsImageWhenDisabled = false
                 setTimerForBackOfImages()
                 arrayToBeUsed.remove(at: self.randomCardIndex)
             }
@@ -259,6 +295,7 @@ class GameController {
                 print("GameController score:",GameController.shared.score.score)
             }
         }
+        saveData()
     }
     
     // MARK: - Save to persistence
