@@ -19,11 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GxJ-PX-TxV" userLabel="topView">
-                                <rect key="frame" x="10" y="74" width="355" height="286.5"/>
+                                <rect key="frame" x="5" y="69" width="365" height="294"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C1s-Eb-3ml">
-                                        <rect key="frame" x="40" y="73.5" width="275" height="141"/>
-                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="38"/>
+                                        <rect key="frame" x="40" y="97.5" width="285" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Pmx-Dy-khe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="40"/>
                                         <state key="normal" title="Classic"/>
                                         <connections>
                                             <action selector="classicGameTapped:" destination="EKj-3u-62y" eventType="touchUpInside" id="zQJ-Ny-bDe"/>
@@ -40,11 +43,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65K-ut-nXA" userLabel="bottomView">
-                                <rect key="frame" x="10" y="370.5" width="355" height="286.5"/>
+                                <rect key="frame" x="5" y="368" width="365" height="294"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEM-NE-rx4">
-                                        <rect key="frame" x="40" y="86.5" width="275" height="114"/>
-                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="30"/>
+                                        <rect key="frame" x="40" y="98" width="285" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="0Yw-SZ-pni"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="35"/>
                                         <state key="normal" title="Professional"/>
                                         <connections>
                                             <action selector="proGameTapped:" destination="EKj-3u-62y" eventType="touchUpInside" id="HVd-1x-8CF"/>
@@ -63,14 +69,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GxJ-PX-TxV" firstAttribute="leading" secondItem="1xM-fQ-VZy" secondAttribute="leading" constant="10" id="C1w-Iw-fWP"/>
+                            <constraint firstItem="GxJ-PX-TxV" firstAttribute="leading" secondItem="1xM-fQ-VZy" secondAttribute="leading" constant="5" id="C1w-Iw-fWP"/>
                             <constraint firstItem="65K-ut-nXA" firstAttribute="height" secondItem="GxJ-PX-TxV" secondAttribute="height" id="E3u-cQ-Z2c"/>
-                            <constraint firstItem="1xM-fQ-VZy" firstAttribute="trailing" secondItem="GxJ-PX-TxV" secondAttribute="trailing" constant="10" id="EAs-uT-Rl5"/>
-                            <constraint firstItem="65K-ut-nXA" firstAttribute="leading" secondItem="1xM-fQ-VZy" secondAttribute="leading" constant="10" id="YyH-fQ-Evk"/>
-                            <constraint firstItem="GxJ-PX-TxV" firstAttribute="top" secondItem="1xM-fQ-VZy" secondAttribute="top" constant="10" id="auc-WP-sBt"/>
-                            <constraint firstItem="1xM-fQ-VZy" firstAttribute="trailing" secondItem="65K-ut-nXA" secondAttribute="trailing" constant="10" id="jrZ-XT-qDL"/>
-                            <constraint firstItem="1xM-fQ-VZy" firstAttribute="bottom" secondItem="65K-ut-nXA" secondAttribute="bottom" constant="10" id="kfr-zr-Hp5"/>
-                            <constraint firstItem="65K-ut-nXA" firstAttribute="top" secondItem="GxJ-PX-TxV" secondAttribute="bottom" constant="10" id="tpv-BZ-ZBp"/>
+                            <constraint firstItem="1xM-fQ-VZy" firstAttribute="trailing" secondItem="GxJ-PX-TxV" secondAttribute="trailing" constant="5" id="EAs-uT-Rl5"/>
+                            <constraint firstItem="65K-ut-nXA" firstAttribute="leading" secondItem="1xM-fQ-VZy" secondAttribute="leading" constant="5" id="YyH-fQ-Evk"/>
+                            <constraint firstItem="GxJ-PX-TxV" firstAttribute="top" secondItem="1xM-fQ-VZy" secondAttribute="top" constant="5" id="auc-WP-sBt"/>
+                            <constraint firstItem="1xM-fQ-VZy" firstAttribute="trailing" secondItem="65K-ut-nXA" secondAttribute="trailing" constant="5" id="jrZ-XT-qDL"/>
+                            <constraint firstItem="1xM-fQ-VZy" firstAttribute="bottom" secondItem="65K-ut-nXA" secondAttribute="bottom" constant="5" id="kfr-zr-Hp5"/>
+                            <constraint firstItem="65K-ut-nXA" firstAttribute="top" secondItem="GxJ-PX-TxV" secondAttribute="bottom" constant="5" id="tpv-BZ-ZBp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1xM-fQ-VZy"/>
                     </view>
@@ -195,7 +201,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="ExN-lp-9RA"/>
                                                     <constraint firstAttribute="height" constant="70" id="hjF-nc-P7g"/>
                                                 </constraints>
-                                                <state key="normal" image="if_Twitter"/>
+                                                <state key="normal" image="if_YouTube"/>
                                                 <connections>
                                                     <action selector="socialMediaImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IjX-tm-j6H"/>
                                                     <segue destination="Xrc-r9-epZ" kind="show" id="UgL-v4-gGG"/>
@@ -233,7 +239,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="5uX-om-F5T"/>
                                                     <constraint firstAttribute="height" constant="70" id="jFA-Ey-atg"/>
                                                 </constraints>
-                                                <state key="normal" image="_BATMAN"/>
+                                                <state key="normal" image="_Ironman"/>
                                                 <connections>
                                                     <action selector="herosImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lvd-Sv-RiT"/>
                                                     <segue destination="Xrc-r9-epZ" kind="show" id="Gto-Wy-q4C"/>
@@ -255,7 +261,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="NJU-C4-743"/>
                                                     <constraint firstAttribute="width" constant="70" id="uUZ-Fe-Hei"/>
                                                 </constraints>
-                                                <state key="normal" image="_Snowman"/>
+                                                <state key="normal" image="_Stocking"/>
                                                 <connections>
                                                     <action selector="christmasImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9YF-Zu-MYB"/>
                                                     <segue destination="Xrc-r9-epZ" kind="show" id="FmA-oG-Ipe"/>
@@ -330,8 +336,8 @@
                                 <rect key="frame" x="5" y="69" width="365" height="144.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Cs-zG-CZ1">
-                                        <rect key="frame" x="60" y="23.5" width="245" height="97"/>
-                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="25"/>
+                                        <rect key="frame" x="60" y="47" width="245" height="50"/>
+                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="35"/>
                                         <state key="normal" title="Easy"/>
                                         <connections>
                                             <action selector="easyButtonTapped:" destination="Xrc-r9-epZ" eventType="touchUpInside" id="oDW-5H-pQA"/>
@@ -351,8 +357,8 @@
                                 <rect key="frame" x="5" y="218.5" width="365" height="144.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jw-sC-E8m">
-                                        <rect key="frame" x="60" y="23.5" width="245" height="97"/>
-                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="25"/>
+                                        <rect key="frame" x="60" y="47" width="245" height="50"/>
+                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="35"/>
                                         <state key="normal" title="Medium"/>
                                         <connections>
                                             <action selector="mediumButtonTapped:" destination="Xrc-r9-epZ" eventType="touchUpInside" id="dcF-m9-jzb"/>
@@ -372,8 +378,8 @@
                                 <rect key="frame" x="5" y="368" width="365" height="144.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aps-NB-g9V">
-                                        <rect key="frame" x="60" y="24" width="245" height="97"/>
-                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="25"/>
+                                        <rect key="frame" x="60" y="47.5" width="245" height="50"/>
+                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="35"/>
                                         <state key="normal" title="Hard"/>
                                         <connections>
                                             <action selector="hardButtonTapped:" destination="Xrc-r9-epZ" eventType="touchUpInside" id="ddj-Or-1sc"/>
@@ -393,8 +399,8 @@
                                 <rect key="frame" x="5" y="517.5" width="365" height="144.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6r0-QY-8ap">
-                                        <rect key="frame" x="60" y="23.5" width="245" height="97"/>
-                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="25"/>
+                                        <rect key="frame" x="60" y="47" width="245" height="50"/>
+                                        <fontDescription key="fontDescription" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="35"/>
                                         <state key="normal" title="Expert"/>
                                         <connections>
                                             <action selector="veryHardButtonTapped:" destination="Xrc-r9-epZ" eventType="touchUpInside" id="8os-P3-rtW"/>
@@ -449,7 +455,7 @@
             </objects>
             <point key="canvasLocation" x="2823.1999999999998" y="116.49175412293854"/>
         </scene>
-        <!--Medium-FLIPS: 0-->
+        <!--FLIPS: 0-->
         <scene sceneID="yaO-Hm-Cfb">
             <objects>
                 <viewController id="PfA-AL-FYe" customClass="MediumViewController" customModule="MyMemoryGame" customModuleProvider="target" sceneMemberID="viewController">
@@ -642,8 +648,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2a1-7q-eeV"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Medium-FLIPS: 0" id="eMt-pM-xnt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="FDa-gb-Fdt">
+                    <navigationItem key="navigationItem" title="FLIPS: 0" id="eMt-pM-xnt">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-repeat-26" id="FDa-gb-Fdt">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="mediumRestartButtonTapped:" destination="PfA-AL-FYe" id="G0C-2Z-nIW"/>
@@ -676,7 +682,7 @@
             </objects>
             <point key="canvasLocation" x="3724" y="116"/>
         </scene>
-        <!--Very Hard-FLIPS: 0-->
+        <!--Very Hard View Controller-->
         <scene sceneID="Smb-un-ujg">
             <objects>
                 <viewController id="0BT-Fg-xnl" customClass="VeryHardViewController" customModule="MyMemoryGame" customModuleProvider="target" sceneMemberID="viewController">
@@ -941,8 +947,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hUw-4S-8dm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Very Hard-FLIPS: 0" id="mOq-If-i5j">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="E83-AM-iQS">
+                    <navigationItem key="navigationItem" id="mOq-If-i5j">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-repeat-26" id="E83-AM-iQS">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="restartButtonTapped:" destination="0BT-Fg-xnl" id="2FR-Qp-Hm4"/>
@@ -983,7 +989,7 @@
             </objects>
             <point key="canvasLocation" x="2823" y="876"/>
         </scene>
-        <!--Hard-FLIPS: 0-->
+        <!--Hard View Controller-->
         <scene sceneID="0AR-Dv-0Bc">
             <objects>
                 <viewController id="HAl-tQ-Yf7" customClass="HardViewController" customModule="MyMemoryGame" customModuleProvider="target" sceneMemberID="viewController">
@@ -1197,8 +1203,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3Dg-0e-q5l"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Hard-FLIPS: 0" id="RQ4-rv-Huy">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nrg-qN-a1C">
+                    <navigationItem key="navigationItem" id="RQ4-rv-Huy">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-repeat-26" id="Nrg-qN-a1C">
                             <connections>
                                 <action selector="restartButtonTapped:" destination="HAl-tQ-Yf7" id="HF1-H4-uRr"/>
                             </connections>
@@ -1234,7 +1240,7 @@
             </objects>
             <point key="canvasLocation" x="3724" y="876"/>
         </scene>
-        <!--Easy-FLIPS: 0-->
+        <!--Easy View Controller-->
         <scene sceneID="ROy-fr-9iT">
             <objects>
                 <viewController id="wWM-hF-5Dv" customClass="EasyViewController" customModule="MyMemoryGame" customModuleProvider="target" sceneMemberID="viewController">
@@ -1390,15 +1396,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.44762708020000003" blue="0.27205634439999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Big-vJ-z8n" secondAttribute="bottom" constant="10" id="0fU-MB-UAo"/>
+                            <constraint firstItem="5M8-kp-PCX" firstAttribute="bottom" secondItem="Big-vJ-z8n" secondAttribute="bottom" constant="10" id="0fU-MB-UAo"/>
                             <constraint firstItem="Big-vJ-z8n" firstAttribute="leading" secondItem="5M8-kp-PCX" secondAttribute="leading" constant="10" id="YYx-8I-agc"/>
                             <constraint firstItem="Big-vJ-z8n" firstAttribute="top" secondItem="5M8-kp-PCX" secondAttribute="top" constant="10" id="ZRk-JB-QmN"/>
                             <constraint firstItem="5M8-kp-PCX" firstAttribute="trailing" secondItem="Big-vJ-z8n" secondAttribute="trailing" constant="10" id="xUT-ct-nFk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5M8-kp-PCX"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Easy-FLIPS: 0" id="rp8-iF-bTN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="btN-ds-bJl">
+                    <navigationItem key="navigationItem" id="rp8-iF-bTN">
+                        <barButtonItem key="rightBarButtonItem" image="icons8-repeat-26" style="plain" id="btN-ds-bJl">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="restartButtonTapped:" destination="wWM-hF-5Dv" id="dWg-e1-azr"/>
@@ -1447,11 +1453,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="_BATMAN" width="228" height="227"/>
-        <image name="_Brazil" width="247" height="190"/>
-        <image name="_Snowman" width="256" height="256"/>
+        <image name="_Brazil" width="256" height="256"/>
+        <image name="_Ironman" width="128" height="128"/>
+        <image name="_Stocking" width="256" height="256"/>
         <image name="_pikachu" width="563" height="563"/>
-        <image name="if_Twitter" width="256" height="256"/>
+        <image name="icons8-repeat-26" width="26" height="26"/>
+        <image name="if_YouTube" width="256" height="256"/>
         <image name="if_love" width="124" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>

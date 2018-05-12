@@ -22,10 +22,7 @@ class GameController {
     weak var delegate: DataModelDelegate?
 
     static let shared = GameController()
-    
-    
-    
-    
+     
     var gameTypeOneButtonsTag = [Int]()
     var gameTypeTwoButtonsTag = [Int]()
     
@@ -94,36 +91,17 @@ class GameController {
     // MARK: - Game Funcations
     
     func setbackOfImages() {
+        
         guard let arrayOfButtons =  allButtons else { return }
         
         for button in arrayOfButtons {
             
-            //            guard let buttonImage = button.imageView else { return }
-            //            buttonImage.layer.cornerRadius = 15
-            
-            
-            
-            if gameTypeTwoButtonsTag.count > 1 {
-                if gameTypeTwoButtonsTag.contains(button.tag) {
-                    UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
-                    button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
-                    button.isEnabled = true
-                }
-                
-            }
-            
-            button.setImage(UIImage(named: arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+            UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
+            button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
             button.isEnabled = true
-            
         }
-        gameTypeTwoButtonsTag.removeAll()
-        
-        
-        
     }
-            
-    
-    
+        
     func compareCards() {
         if arrayToCompare.count == 2 {
             if arrayToCompare[0] == arrayToCompare[1]  {
@@ -137,16 +115,15 @@ class GameController {
                     
                     guard let arrayOfTwoButtons = allButtons else { return }
                     for button in arrayOfTwoButtons {
-                        if gameTypeOneButtonsTag.count == 2 {
-                            
-                            if button.tag == self.gameTypeOneButtonsTag[0] || button.tag == self.gameTypeOneButtonsTag[1] {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        
+                        if button.tag == self.gameTypeOneButtonsTag[0] || button.tag == self.gameTypeOneButtonsTag[1] {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
-                                    button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
-                                    button.isEnabled = true
-                                }
-                                
+                                button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+                                button.isEnabled = true
                             }
+                            
+                            button.isEnabled = false
                         }
                     }
                     
@@ -154,9 +131,20 @@ class GameController {
                     
                 } else if gameType == 2 {
                     
-                    setbackOfImages()
+                    guard let arrayOfButtons2 = allButtons else { return }
+                    for button in arrayOfButtons2 {
+                        
+                        if gameTypeTwoButtonsTag.contains(button.tag) {
+                            UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
+                            button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+                            button.isEnabled = true
+                        }
+                    }
+                    
+                    gameTypeTwoButtonsTag.removeAll()
                     totalScoreToWin = 0
                 }
+                
                 arrayToCompare.removeAll()
                 print(totalScoreToWin)
             }
@@ -164,13 +152,14 @@ class GameController {
     }
     
     func reloadGame() {
-//        randomImageIndex = Int(arc4random_uniform(UInt32(arrayToBeUsedForBackImage.count)))
+
+        gameTypeOneButtonsTag.removeAll()
+        gameTypeTwoButtonsTag.removeAll()
         CardController.shared.cards.removeAll()
         randomizeCardImages()
-//        saveData()
+
         arrayToCompare.removeAll()
         totalScoreToWin = 0
-        
     }
     
     func setImageAndLevel() {
@@ -259,6 +248,8 @@ class GameController {
         
         setImageAndLevel()
 
+        randomImageIndex = Int(arc4random_uniform(UInt32(arrayToBeUsedForBackImage.count)))
+        
         while arrayToBeUsed.count != 0 {
             guard let mediumAllButtons = allButtons else { return }
             for button in mediumAllButtons {
@@ -269,11 +260,18 @@ class GameController {
                 guard let buttonImage = button.imageView else { return }
                 buttonImage.layer.cornerRadius = 12
                 button.layer.cornerRadius = 12
-                button.layer.borderWidth = 2.0
-                button.layer.borderColor = UIColor.black.cgColor
+//                button.layer.borderWidth = 2.0
+//                button.layer.borderColor = UIColor.black.cgColor
+                button.backgroundColor = .white
                 button.isEnabled = false
                 button.adjustsImageWhenDisabled = false
-                setTimerForBackOfImages()
+                
+                if gameType == 2 {
+                    
+                    setTimerForBackOfImages()
+                } else {
+                    setbackOfImages()
+                }
                 arrayToBeUsed.remove(at: self.randomCardIndex)
             }
         }
@@ -304,7 +302,6 @@ class GameController {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fullURL = path.appendingPathComponent("game").appendingPathExtension("json")
         return fullURL
-        
     }
     
     func saveData() {

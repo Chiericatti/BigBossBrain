@@ -26,6 +26,7 @@ class HardViewController: UIViewController {
     
     var flipCount = 0 {
         didSet {
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Arial Hebrew", size: 30)!]
             self.navigationItem.title = "FLIPS: \(flipCount/2)"
         }
     }
@@ -42,9 +43,9 @@ class HardViewController: UIViewController {
         let arrayOfButtons = cardButtonOutlet
         GameController.shared.allButtons = arrayOfButtons
         hardSecondView.layer.cornerRadius = 15
-        hardSecondView.layer.borderWidth = 5
-        hardSecondView.layer.borderColor = UIColor.black.cgColor
-        hardStartButton.setImage(#imageLiteral(resourceName: "icons8-play-50"), for: .normal)
+//        hardSecondView.layer.borderWidth = 5
+//        hardSecondView.layer.borderColor = UIColor.black.cgColor
+        hardStartButton.setImage(#imageLiteral(resourceName: "icons8-play-filled-50"), for: .normal)
         hardStartButton.layer.cornerRadius = hardStartButton.bounds.size.width / 2
         hardStartButton.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
         
@@ -52,12 +53,38 @@ class HardViewController: UIViewController {
         for button in allButtons {
             button.isEnabled = false
             button.isHidden = true
+            button.isExclusiveTouch = true
         }
+        
+        addNavBarTwo()
+        navigationItem.rightBarButtonItem?.image?.withRenderingMode(.alwaysOriginal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    // MARK: - Functions
+    
+    func addNavBarTwo() {
+        //create a new button
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        //set image for button
+        button.setImage(UIImage(named: "icons8-left-filled-50"), for: UIControlState.normal)
+        //add function for button
+        button.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
+        //set frame
+        //button.frame = CGRect(x: 100, y: 10, width: 10, height: 10)
+        
+        let barButton = UIBarButtonItem(customView: button)
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = barButton
+        
+    }
+    
+    @objc func goBack() {
+        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Actions
@@ -86,6 +113,11 @@ class HardViewController: UIViewController {
         UIView.transition(with: sender, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
         let card = CardController.shared.cards[sender.tag - 1]
         sender.setImage(UIImage(named: card.cardImageName), for: .normal)
+        
+        GameController.shared.gameTypeOneButtonsTag.append(sender.tag)
+        GameController.shared.gameTypeTwoButtonsTag.append(sender.tag)
+        print(GameController.shared.gameTypeOneButtonsTag)
+        
         GameController.shared.arrayToCompare.append(card.cardImageName)
         sender.isEnabled = false
         sender.adjustsImageWhenDisabled = false
@@ -116,7 +148,11 @@ class HardViewController: UIViewController {
 extension HardViewController: DataModelDelegate {
     func didRecieveDataUpdate(data: Int) {
         if data == 10 {
-            createVictoryAlert()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                
+                GameController.shared.setbackOfImages()
+                self.createVictoryAlert()
+            }
             GameController.shared.totalScoreToWin = 0
         }
         print("Data:",data)

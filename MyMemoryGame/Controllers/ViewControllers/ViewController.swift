@@ -66,25 +66,42 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
         flagImage.layer.cornerRadius = 10
         socialMediaImage.layer.cornerRadius = 10
         addNavBarImage()
-        
+        addNavBarTwo()
         
     }
     
     func addNavBarImage() {
-        //create a new button
+        
         let button: UIButton = UIButton(type: UIButtonType.custom)
-        //set image for button
-        button.setImage(UIImage(named: "leaderboard-48"), for: UIControlState.normal)
-        //add function for button
+        
+        button.setImage(UIImage(named: "icons8-leaderboard-filled-50"), for: UIControlState.normal)
+        
         button.addTarget(self, action: #selector(gameCenterLeaderboard), for: UIControlEvents.touchUpInside)
-        //set frame
-        //button.frame = CGRect(x: 100, y: 10, width: 10, height: 10)
+        
         
         let barButton = UIBarButtonItem(customView: button)
-        //assign button to navigationbar
+        
         self.navigationItem.rightBarButtonItem = barButton
     }
     
+    func addNavBarTwo() {
+        
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        
+        button.setImage(UIImage(named: "icons8-left-filled-50"), for: UIControlState.normal)
+        
+        button.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
+        
+        
+        let barButton = UIBarButtonItem(customView: button)
+        
+        self.navigationItem.leftBarButtonItem = barButton
+        
+    }
+    
+    @objc func goBack() {
+        navigationController?.popViewController(animated: true)
+    }
     // MARK: - Game Center
 
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
@@ -93,13 +110,23 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @objc func gameCenterLeaderboard() {
         
-        let gcVC = GKGameCenterViewController()
-        gcVC.gameCenterDelegate = self
-        gcVC.viewState = .leaderboards
-        gcVC.leaderboardIdentifier = GameController.shared.LEADERBOARD_ID
-        present(gcVC, animated: true, completion: nil)
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
+        
+        if localPlayer.isAuthenticated {
+            
+            let gcVC = GKGameCenterViewController()
+            gcVC.gameCenterDelegate = self
+            gcVC.viewState = .leaderboards
+            gcVC.leaderboardIdentifier = GameController.shared.LEADERBOARD_ID
+            present(gcVC, animated: true, completion: nil)
+        }
+        else if localPlayer.isAuthenticated == false {
+            
+            let alert = UIAlertController(title: "Game Center needs to be enable for leaderboard access.", message: "Please look for Game Center on your phone Settings.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
-    
     
     // MARK: - Actions
     
