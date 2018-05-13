@@ -117,7 +117,6 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
             let gcVC = GKGameCenterViewController()
             gcVC.gameCenterDelegate = self
             gcVC.viewState = .leaderboards
-            gcVC.leaderboardIdentifier = GameController.shared.LEADERBOARD_ID
             present(gcVC, animated: true, completion: nil)
         }
         else if localPlayer.isAuthenticated == false {

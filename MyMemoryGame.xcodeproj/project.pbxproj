@@ -124,13 +124,13 @@
 		CB9BF51720A3D02700062BEE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CB9AA3FC209BB02E005FE979 /* ViewController.swift */,
 				CBCB87AA20A247B8006CEDB9 /* GameTypeViewController.swift */,
+				CB9AA3FC209BB02E005FE979 /* ViewController.swift */,
+				CB6756E2209CFFA60015D430 /* levelChoiceViewController.swift */,
 				CB6756E0209CEEFC0015D430 /* EasyViewController.swift */,
 				CB6756E8209D3BEA0015D430 /* MediumViewController.swift */,
 				CB215F7B20A0EE8C002241FB /* HardViewController.swift */,
 				CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */,
-				CB6756E2209CFFA60015D430 /* levelChoiceViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

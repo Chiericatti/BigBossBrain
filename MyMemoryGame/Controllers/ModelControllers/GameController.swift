@@ -17,7 +17,11 @@ class GameController {
     
     // MARK: - Properties
     
-    let LEADERBOARD_ID = "com.score.matchpro"
+    let classicLeaderboard = "com.score.classicLeaderboard"
+    let proLeaderboard = "com.score.proLeaderboard"
+    
+    let trophyLeaderboard = "com.score.matchprotrophies"
+    let totalPointsLeaderboad = "com.score.totalPoints"
     
     weak var delegate: DataModelDelegate?
 
@@ -26,10 +30,12 @@ class GameController {
     var gameTypeOneButtonsTag = [Int]()
     var gameTypeTwoButtonsTag = [Int]()
     
+    var justWonTrophy = 0
     
     var allButtons: [UIButton]?
     
-    var score = Score(score: 0)
+    var trophy = Trophy(classicEasy: 0, classicMedium: 0, classicHard: 0, classicVeryHard: 0, proEasy: 0, proMedium: 0, proHard: 0, proVeryHard: 0)
+    var score = Score(points: 0, trophies: 0, classic: 0, professional: 0)
     
     var randomCardIndex = 0
     var randomImageIndex = 0
@@ -41,6 +47,16 @@ class GameController {
     
     var arrayToCompare = [String]()
     var arrayToBeUsed = [String]()
+    
+    var randomAlertTitlePro = ""
+    var randomAlertTitleClassic = ""
+    var randomAlertActionName = ""
+    
+    var arrayOfAlertTitlesClssic = ["That's GREAT!!","WELL DONE!!","GOOD WORK!!","GREAT JOB!!","You're doing GREAT!!","WAY TO GO!!","NICE WORK!!","NICE JOB!!","WONDERFUL!!","IMPRESSIVE!!","AWESOME!!","BRAVO!!"]
+    var arrayOfAlertTitlesProfessional = ["Professional as usual!!","You are FANTASTIC!!","Don't EVER leave us!!","FIRST CLASS JOB!!","MAGNIFICENT!!","BRAVO!! BRAVO!! BRAVO!!","PERFECTION!!","AMAZING!!","UNREAL!!","You always amaze me!!","What a STAR!!","TERRIFIC!!","You're one of a kind!!","INCREDIBLE!!","You are a LEGEND!!"]
+    
+    
+    var arrayOfAlertActions = ["YES","OKEY","YEA","OKEY-DOKEY","AYE AYE","ROGER","YUP","RIGHT ON","SURE THING","YESSIR"]
     
     var arrayToBeUsedForBackImage = ["myice2-melting-1551367","mygrunge-paint-2-1615296","myultimate-free-photo-1156750","mycoton-texture-1161474","rainbow-1-1192968","orange-golden-leaf-1194347","the-blue-sphere-1197710","water-effect-1197569","falling-gras-1548881"]
     
@@ -97,7 +113,7 @@ class GameController {
         for button in arrayOfButtons {
             
             UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
-            button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+//            button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
             button.isEnabled = true
         }
     }
@@ -108,7 +124,7 @@ class GameController {
                 arrayToCompare.removeAll()
                 gameTypeOneButtonsTag.removeAll()
                 totalScoreToWin += 1
-                print(totalScoreToWin)
+//                print(totalScoreToWin)
             }
             else if arrayToCompare[0] != arrayToCompare[1] {
                 if gameType == 1 {
@@ -146,7 +162,7 @@ class GameController {
                 }
                 
                 arrayToCompare.removeAll()
-                print(totalScoreToWin)
+//                print(totalScoreToWin)
             }
         }
     }
@@ -242,7 +258,7 @@ class GameController {
         }
     }
     
-    // MARK: - Randomize func
+    // MARK: - Randomize functions
     
     func randomizeCardImages() {
         
@@ -255,45 +271,203 @@ class GameController {
             for button in mediumAllButtons {
                 randomCardIndex = Int(arc4random_uniform(UInt32(arrayToBeUsed.count)))
                 CardController.shared.createNewCardWith(cardImageName: arrayToBeUsed[randomCardIndex])
-                print(self.arrayToBeUsed[self.randomCardIndex])
+//                print(self.arrayToBeUsed[self.randomCardIndex])
                 button.setImage(UIImage(named: self.arrayToBeUsed[self.randomCardIndex]), for: .normal)
                 guard let buttonImage = button.imageView else { return }
                 buttonImage.layer.cornerRadius = 12
                 button.layer.cornerRadius = 12
-//                button.layer.borderWidth = 2.0
-//                button.layer.borderColor = UIColor.black.cgColor
                 button.backgroundColor = .white
                 button.isEnabled = false
                 button.adjustsImageWhenDisabled = false
                 
-                if gameType == 2 {
-                    
-                    setTimerForBackOfImages()
-                } else {
-                    setbackOfImages()
-                }
                 arrayToBeUsed.remove(at: self.randomCardIndex)
             }
         }
+        if gameType == 2 {
+            
+            setTimerForBackOfImages()
+        } else {
+            setbackOfImages()
+        }
+    }
+    
+    func randomizeAlertTitleAndActionName() {
+       let randomClassicTitleIndex = Int(arc4random_uniform(UInt32(arrayOfAlertTitlesClssic.count)))
+        randomAlertTitleClassic = arrayOfAlertTitlesClssic[randomClassicTitleIndex]
+        
+        let randomProTitleIndex = Int(arc4random_uniform(UInt32(arrayOfAlertTitlesProfessional.count)))
+        randomAlertTitlePro = arrayOfAlertTitlesProfessional[randomProTitleIndex]
+        
+        let randonActionIndex = Int(arc4random_uniform(UInt32(arrayOfAlertActions.count)))
+        randomAlertActionName = arrayOfAlertActions[randonActionIndex]
+    }
+    
+    // MARK: - Ponits function
+    
+    func settingTotalScore() {
+        if gameType == 1 {
+            
+            if levelMode == 1 {
+                GameController.shared.score.points += 1
+                GameController.shared.score.classic += 1
+                GameController.shared.trophy.classicEasy = 1
+                
+            } else if levelMode == 2 {
+                GameController.shared.score.points += 2
+                GameController.shared.score.classic += 2
+                GameController.shared.trophy.classicMedium = 1
+                
+            } else if levelMode == 3 {
+                GameController.shared.score.points += 3
+                GameController.shared.score.classic += 3
+                GameController.shared.trophy.classicHard = 1
+               
+            } else if levelMode == 4 {
+                GameController.shared.score.points += 4
+                GameController.shared.score.classic += 4
+                GameController.shared.trophy.classicVeryHard = 1
+                
+            }
+        }
+        else if gameType == 2 {
+            
+            if levelMode == 1 {
+                GameController.shared.score.points += 2
+                GameController.shared.score.professional += 1
+                GameController.shared.trophy.proEasy = 1
+            } else if levelMode == 2 {
+                GameController.shared.score.points += 4
+                GameController.shared.score.professional += 2
+                GameController.shared.trophy.proMedium = 1
+            } else if levelMode == 3 {
+                GameController.shared.score.points += 6
+                GameController.shared.score.professional += 3
+                GameController.shared.trophy.proHard = 1
+            } else if levelMode == 4 {
+                GameController.shared.score.points += 8
+                GameController.shared.score.professional += 4
+                GameController.shared.trophy.proVeryHard = 1
+            }
+        }
+//        print("classicEasy:",GameController.shared.trophy.classicEasy)
+//        print("classicMedium:",GameController.shared.trophy.classicMedium)
+//        print("classicHard:",GameController.shared.trophy.classicHard)
+//        print("classicVeryHard:",GameController.shared.trophy.classicVeryHard)
+//        print("proEasy:",GameController.shared.trophy.proEasy)
+//        print("proMedium:",GameController.shared.trophy.proMedium)
+//        print("proHard:",GameController.shared.trophy.proHard)
+//        print("proVeryHard:",GameController.shared.trophy.proVeryHard)
+        
+        checkIfWonTrophy()
+        saveData()
+    }
+    
+    func checkIfWonTrophy() {
+        
+        let wonTrophy = (GameController.shared.trophy.classicEasy,GameController.shared.trophy.classicMedium,GameController.shared.trophy.classicHard,GameController.shared.trophy.classicVeryHard,GameController.shared.trophy.proEasy,GameController.shared.trophy.proMedium,GameController.shared.trophy.proHard,GameController.shared.trophy.proVeryHard)
+        
+        switch wonTrophy {
+        case (1,1,1,1,1,1,1,1):
+            GameController.shared.score.trophies += 1
+            justWonTrophy = 1
+            submitTrophiesToGameCenter()
+            
+            
+        default: return
+        }
+    }
+    
+    func resetTrophyOnScore() {
+        
+        GameController.shared.trophy.classicEasy = 0
+        GameController.shared.trophy.classicMedium = 0
+        GameController.shared.trophy.classicHard = 0
+        GameController.shared.trophy.classicVeryHard = 0
+        GameController.shared.trophy.proEasy = 0
+        GameController.shared.trophy.proMedium = 0
+        GameController.shared.trophy.proHard = 0
+        GameController.shared.trophy.proVeryHard = 0
     }
     
     // MARK: - Game Center
     
-    func addPointToScoreAndSubmit() {
-        GameController.shared.score.score += 1
-        let myNewScore = GKScore(leaderboardIdentifier: GameController.shared.LEADERBOARD_ID)
+    func submmitTotalPointsToGameCenter() {
         
-        myNewScore.value = Int64(GameController.shared.score.score)
+        let myNewPointsScore = GKScore(leaderboardIdentifier: GameController.shared.totalPointsLeaderboad)
         
-        GKScore.report([myNewScore]) { (error) in
+        myNewPointsScore.value = Int64(GameController.shared.score.points)
+        
+        GKScore.report([myNewPointsScore]) { (error) in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-                print("New Score submitted to your Leaderboard!")
-                print("GameController score:",GameController.shared.score.score)
+//                print("New Total point(s) submitted to your Leaderboard!")
+//                print("GameController Total Points:",GameController.shared.score.points)
             }
         }
-        saveData()
+        
+    }
+    
+    func submitTrophiesToGameCenter() {
+        
+        let myNewTrophiesScire = GKScore(leaderboardIdentifier: GameController.shared.trophyLeaderboard)
+        
+        myNewTrophiesScire.value = Int64(GameController.shared.score.trophies)
+        
+        GKScore.report([myNewTrophiesScire]) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+//                print("New Trophy submitted to your Leaderboard!")
+//                print("GameController Trophies:",GameController.shared.score.trophies)
+            }
+        }
+        
+    }
+    
+    func submitClassicPointsToGameCenter() {
+        
+        let myNewClassicPoints = GKScore(leaderboardIdentifier: GameController.shared.classicLeaderboard)
+        
+        myNewClassicPoints.value = Int64(GameController.shared.score.classic)
+        
+        GKScore.report([myNewClassicPoints]) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+//                print("New Classic point submitted to your Leaderboard!")
+//                print("GameController Classic points:",GameController.shared.score.classic)
+                
+            }
+        }
+    }
+    
+    func submitProfessionalPointsToGameCenter() {
+        
+        let myNewProPoints = GKScore(leaderboardIdentifier: GameController.shared.proLeaderboard)
+        
+        myNewProPoints.value = Int64(GameController.shared.score.professional)
+        
+        GKScore.report([myNewProPoints]) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+//                print("New Professional point submitted to your Leaderboard!")
+//                print("GameController Pro points:",GameController.shared.score.professional)
+                
+            }
+        }
+    }
+    
+    func submitScoreToGameCenter() {
+
+        settingTotalScore()
+        
+        submitClassicPointsToGameCenter()
+        submitProfessionalPointsToGameCenter()
+        submmitTotalPointsToGameCenter()
+        
+        
     }
     
     // MARK: - Save to persistence
@@ -323,7 +497,7 @@ class GameController {
         } catch {
             print(error)
         }
-        return Score(score: 0)
+        return Score(points: 0, trophies: 0, classic: 0, professional: 0)
     }
     
     init() {

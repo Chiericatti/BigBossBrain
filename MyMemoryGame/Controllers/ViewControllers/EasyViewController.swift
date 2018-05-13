@@ -43,8 +43,6 @@ class EasyViewController: UIViewController {
         let arrayOfButtons = cardButtonsOutlet
         GameController.shared.allButtons = arrayOfButtons
         easySecondView.layer.cornerRadius = 15
-//        easySecondView.layer.borderWidth = 5
-//        easySecondView.layer.borderColor = UIColor.black.cgColor
         easyStartButton.setImage(#imageLiteral(resourceName: "icons8-play-filled-50"), for: .normal)
         easyStartButton.layer.cornerRadius = easyStartButton.bounds.size.width / 2
         easyStartButton.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
@@ -55,12 +53,8 @@ class EasyViewController: UIViewController {
             button.isHidden = true
             button.isExclusiveTouch = true
         }
-        
-        addNavBarTwo()
-//        addNavBarRefresh()
-        
+        addBackArrowImageToNavBar()
         navigationItem.rightBarButtonItem?.image?.withRenderingMode(.alwaysOriginal)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,70 +64,23 @@ class EasyViewController: UIViewController {
     
     // MARK: - Functions
     
-    func addNavBarTwo() {
+    func addBackArrowImageToNavBar() {
 
         let button: UIButton = UIButton(type: UIButtonType.custom)
-
         button.setImage(UIImage(named: "icons8-left-filled-50"), for: UIControlState.normal)
-
         button.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
-
-
         let barButton = UIBarButtonItem(customView: button)
 
         self.navigationItem.leftBarButtonItem = barButton
-
     }
-//
-//    let refreshButton: UIBarButtonItem = {
-//
-//        let button = UIButton(type: UIButtonType.custom)
-//        button.setImage(UIImage(named: "icons8-repeat-26"), for: UIControlState.normal)
-//
-//        var barButton = UIBarButtonItem(customView: button)
-//        button.addTarget(self, action: #selector(restartButtonTapped(_:)), for: UIControlEvents.touchUpInside)
-//
-//
-//        
-//        return barButton
-//
-//    }()
-    
-//    func addNavBarRefresh() {
-//
-//        let button: UIButton = UIButton(type: UIButtonType.custom)
-//
-//        button.setImage(UIImage(named: "icons8-repeat-26"), for: UIControlState.normal)
-//
-//        button.addTarget(self, action: #selector(restartButtonTapped(_:)), for: UIControlEvents.touchUpInside)
-//
-//
-//        let barButton = UIBarButtonItem(customView: button)
-//
-//         self.navigationItem.rightBarButtonItem = barButton
-//
-//    }
     
     @objc func goBack() {
         navigationController?.popViewController(animated: true)
     }
     
-   
-    
     // MARK: - Actions
     
     @IBAction func startButtonTapped(_ sender: Any) {
-        
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        
-        button.setImage(UIImage(named: "icons8-left-filled-50"), for: UIControlState.normal)
-        
-        button.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
-        
-        
-        let barButton = UIBarButtonItem(customView: button)
-        
-        self.navigationItem.leftBarButtonItem = barButton
         
         easyStartButton.isHidden = true
         restartOutlet.isEnabled = true
@@ -157,15 +104,16 @@ class EasyViewController: UIViewController {
         UIView.transition(with: sender, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
         let card = CardController.shared.cards[sender.tag - 1]
         sender.setImage(UIImage(named: card.cardImageName), for: .normal)
+        
         if GameController.shared.gameType == 1 {
             
             GameController.shared.gameTypeOneButtonsTag.append(sender.tag)
-            print(GameController.shared.gameTypeOneButtonsTag)
+//            print(GameController.shared.gameTypeOneButtonsTag)
             
         } else if GameController.shared.gameType == 2 {
             
             GameController.shared.gameTypeTwoButtonsTag.append(sender.tag)
-            print(GameController.shared.gameTypeTwoButtonsTag)
+//            print(GameController.shared.gameTypeTwoButtonsTag)
         }
         
         GameController.shared.arrayToCompare.append(card.cardImageName)
@@ -180,16 +128,66 @@ class EasyViewController: UIViewController {
     
     func createVictoryAlert() {
         
-        let alert = UIAlertController(title: "Congrats!! You finished the game.", message: "One point was added to your total score.", preferredStyle: .alert)
+        GameController.shared.randomizeAlertTitleAndActionName()
         
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            GameController.shared.reloadGame()
-            GameController.shared.addPointToScoreAndSubmit()
-            self.flipCount = 0
+        if GameController.shared.gameType == 1 {
             
-        }))
-        
-        present(alert, animated: true)
+            let alert = UIAlertController(title: GameController.shared.randomAlertTitleClassic, message: "- 1 point added to Classic\n - 1 point added to King of Points.", preferredStyle: .alert)
+            
+            let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
+            imageView.image = #imageLiteral(resourceName: "icons8-medal-80")
+            alert.view.addSubview(imageView)
+            
+            alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
+                
+                if GameController.shared.justWonTrophy == 1 {
+                    let alert = UIAlertController(title: "BRILLIANT!!!!!\nYou are a Master.", message: "- 1 Trophy added to Big Boss Trophy", preferredStyle: .alert)
+                    
+                    let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
+                    imageView.image = #imageLiteral(resourceName: "icons8-trophy-80")
+                    alert.view.addSubview(imageView)
+                    
+                    alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
+                        GameController.shared.reloadGame()
+                        GameController.shared.resetTrophyOnScore()
+                    }))
+                    self.present(alert,animated: true)
+                }
+                
+                GameController.shared.reloadGame()
+            }))
+            present(alert,animated: true)
+            
+        } else if GameController.shared.gameType == 2 {
+            
+            let alert = UIAlertController(title: GameController.shared.randomAlertTitlePro, message: "- 1 point added to Professional\n - 2 points added to King of Points.", preferredStyle: .alert)
+            
+            let imageView = UIImageView(frame: CGRect(x: 225, y: 10, width: 40, height: 40))
+            imageView.image = #imageLiteral(resourceName: "icons8-medal-80")
+            alert.view.addSubview(imageView)
+            
+            alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
+                
+                if GameController.shared.justWonTrophy == 1 {
+                    let alert = UIAlertController(title: "BRILLIANT!!!!!\nYou are a Master.", message: "- 1 Trophy added to Big Boss Trophy", preferredStyle: .alert)
+                    
+                    let imageView = UIImageView(frame: CGRect(x: 220, y: 10, width: 40, height: 40))
+                    imageView.image = #imageLiteral(resourceName: "icons8-trophy-80")
+                    alert.view.addSubview(imageView)
+                    
+                    alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
+                        GameController.shared.reloadGame()
+                        GameController.shared.resetTrophyOnScore()
+                    }))
+                    self.present(alert,animated: true)
+                }
+                GameController.shared.reloadGame()
+            }))
+            present(alert,animated: true)
+        }
+    
+        GameController.shared.submitScoreToGameCenter()
+        self.flipCount = 0
     }
 }
 
@@ -198,14 +196,17 @@ class EasyViewController: UIViewController {
 extension EasyViewController: DataModelDelegate {
     func didRecieveDataUpdate(data: Int) {
         if data == 6 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                 
-            GameController.shared.setbackOfImages()
+                if GameController.shared.gameType == 2 {
+                    
+                    GameController.shared.setbackOfImages()
+                }
                 self.createVictoryAlert()
             }
             GameController.shared.totalScoreToWin = 0
         }
-        print("Data:",data)
+//        print("Data:",data)
     }
 }
 
