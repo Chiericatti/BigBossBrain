@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class EasyViewController: UIViewController {
 
@@ -24,6 +25,8 @@ class EasyViewController: UIViewController {
     
     private let dataModel = GameController()
     
+    var soundEffect: AVAudioPlayer = AVAudioPlayer()
+    
     var flipCount = 0 {
         didSet {
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Arial Hebrew", size: 30)!]
@@ -35,6 +38,16 @@ class EasyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let soundFile = Bundle.main.path(forResource: "cardSound", ofType: ".mp3")
+        
+        do {
+            soundEffect = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: soundFile!))
+            soundEffect.prepareToPlay()
+        } catch {
+            print(error)
+        }
+        
         self.navigationController?.isNavigationBarHidden = false
 
         dataModel.delegate = self
@@ -75,12 +88,14 @@ class EasyViewController: UIViewController {
     }
     
     @objc func goBack() {
+        self.soundEffect.play()
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Actions
     
     @IBAction func startButtonTapped(_ sender: Any) {
+        
         
         easyStartButton.isHidden = true
         restartOutlet.isEnabled = true
@@ -91,15 +106,19 @@ class EasyViewController: UIViewController {
                 button.isHidden = false
         }
         GameController.shared.reloadGame()
+        soundEffect.play()
     }
     
     @IBAction func restartButtonTapped(_ sender: Any) {
        
         GameController.shared.reloadGame()
         flipCount = 0
+        soundEffect.play()
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        
+        soundEffect.play()
         
         UIView.transition(with: sender, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
         let card = CardController.shared.cards[sender.tag - 1]
@@ -149,12 +168,14 @@ class EasyViewController: UIViewController {
                     
                     alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
                         GameController.shared.reloadGame()
+                        self.soundEffect.play()
                         GameController.shared.resetTrophyOnScore()
                     }))
                     self.present(alert,animated: true)
                 }
                 
                 GameController.shared.reloadGame()
+                self.soundEffect.play()
             }))
             present(alert,animated: true)
             
@@ -177,11 +198,13 @@ class EasyViewController: UIViewController {
                     
                     alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
                         GameController.shared.reloadGame()
+                        self.soundEffect.play()
                         GameController.shared.resetTrophyOnScore()
                     }))
                     self.present(alert,animated: true)
                 }
                 GameController.shared.reloadGame()
+                self.soundEffect.play()
             }))
             present(alert,animated: true)
         }

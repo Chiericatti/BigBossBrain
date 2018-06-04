@@ -15,6 +15,9 @@
 		CB6756E9209D3BEA0015D430 /* MediumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E8209D3BEA0015D430 /* MediumViewController.swift */; };
 		CB6756EB209D3BF20015D430 /* VeryHardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */; };
 		CB6756F120A0B9D80015D430 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756F020A0B9D80015D430 /* GameController.swift */; };
+		CB6E94EF20A8F148000C2133 /* cardSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB6E94EE20A8F147000C2133 /* cardSound.mp3 */; };
+		CB6E94F120A8F1B0000C2133 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB6E94F020A8F1B0000C2133 /* AVFoundation.framework */; };
+		CB6E94F320A8FC8B000C2133 /* button_click.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB6E94F220A8FC8B000C2133 /* button_click.mp3 */; };
 		CB9AA3FB209BB02E005FE979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9AA3FA209BB02E005FE979 /* AppDelegate.swift */; };
 		CB9AA3FD209BB02E005FE979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9AA3FC209BB02E005FE979 /* ViewController.swift */; };
 		CB9AA400209BB02E005FE979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9AA3FE209BB02E005FE979 /* Main.storyboard */; };
@@ -34,7 +37,10 @@
 		CB6756E8209D3BEA0015D430 /* MediumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumViewController.swift; sourceTree = "<group>"; };
 		CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryHardViewController.swift; sourceTree = "<group>"; };
 		CB6756F020A0B9D80015D430 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
-		CB9AA3F7209BB02E005FE979 /* MyMemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB6E94EE20A8F147000C2133 /* cardSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardSound.mp3; sourceTree = "<group>"; };
+		CB6E94F020A8F1B0000C2133 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CB6E94F220A8FC8B000C2133 /* button_click.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = button_click.mp3; path = ../../../Downloads/button_click.mp3; sourceTree = "<group>"; };
+		CB9AA3F7209BB02E005FE979 /* BigBossBrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigBossBrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9AA3FA209BB02E005FE979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB9AA3FC209BB02E005FE979 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB9AA3FF209BB02E005FE979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB6E94F120A8F1B0000C2133 /* AVFoundation.framework in Frameworks */,
 				CB9BF4F020A366AB00062BEE /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +68,8 @@
 		CB9AA3EE209BB02E005FE979 = {
 			isa = PBXGroup;
 			children = (
+				CB6E94F220A8FC8B000C2133 /* button_click.mp3 */,
+				CB6E94EE20A8F147000C2133 /* cardSound.mp3 */,
 				CB9AA3F9209BB02E005FE979 /* MyMemoryGame */,
 				CB9AA3F8209BB02E005FE979 /* Products */,
 				CB9BF4EE20A366AB00062BEE /* Frameworks */,
@@ -70,7 +79,7 @@
 		CB9AA3F8209BB02E005FE979 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB9AA3F7209BB02E005FE979 /* MyMemoryGame.app */,
+				CB9AA3F7209BB02E005FE979 /* BigBossBrain.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +98,7 @@
 		CB9BF4EE20A366AB00062BEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB6E94F020A8F1B0000C2133 /* AVFoundation.framework */,
 				CB9BF4EF20A366AB00062BEE /* GameKit.framework */,
 			);
 			name = Frameworks;
@@ -106,8 +116,8 @@
 		CB9BF51520A3CFEF00062BEE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CB9BF51720A3D02700062BEE /* ViewControllers */,
 				CB9BF51620A3D01600062BEE /* ModelControllers */,
+				CB9BF51720A3D02700062BEE /* ViewControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -149,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CB9AA3F6209BB02E005FE979 /* MyMemoryGame */ = {
+		CB9AA3F6209BB02E005FE979 /* BigBossBrain */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB9AA409209BB030005FE979 /* Build configuration list for PBXNativeTarget "MyMemoryGame" */;
+			buildConfigurationList = CB9AA409209BB030005FE979 /* Build configuration list for PBXNativeTarget "BigBossBrain" */;
 			buildPhases = (
 				CB9AA3F3209BB02E005FE979 /* Sources */,
 				CB9AA3F4209BB02E005FE979 /* Frameworks */,
@@ -161,9 +171,9 @@
 			);
 			dependencies = (
 			);
-			name = MyMemoryGame;
+			name = BigBossBrain;
 			productName = MyMemoryGame;
-			productReference = CB9AA3F7209BB02E005FE979 /* MyMemoryGame.app */;
+			productReference = CB9AA3F7209BB02E005FE979 /* BigBossBrain.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CB9AA3F2209BB02E005FE979 /* Build configuration list for PBXProject "MyMemoryGame" */;
+			buildConfigurationList = CB9AA3F2209BB02E005FE979 /* Build configuration list for PBXProject "BigBossBrain" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -199,7 +209,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CB9AA3F6209BB02E005FE979 /* MyMemoryGame */,
+				CB9AA3F6209BB02E005FE979 /* BigBossBrain */,
 			);
 		};
 /* End PBXProject section */
@@ -210,8 +220,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9AA405209BB030005FE979 /* LaunchScreen.storyboard in Resources */,
+				CB6E94EF20A8F148000C2133 /* cardSound.mp3 in Resources */,
 				CB9AA402209BB030005FE979 /* Assets.xcassets in Resources */,
 				CB9AA400209BB02E005FE979 /* Main.storyboard in Resources */,
+				CB6E94F320A8FC8B000C2133 /* button_click.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +424,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CB9AA3F2209BB02E005FE979 /* Build configuration list for PBXProject "MyMemoryGame" */ = {
+		CB9AA3F2209BB02E005FE979 /* Build configuration list for PBXProject "BigBossBrain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB9AA407209BB030005FE979 /* Debug */,
@@ -421,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB9AA409209BB030005FE979 /* Build configuration list for PBXNativeTarget "MyMemoryGame" */ = {
+		CB9AA409209BB030005FE979 /* Build configuration list for PBXNativeTarget "BigBossBrain" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB9AA40A209BB030005FE979 /* Debug */,

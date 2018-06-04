@@ -46,7 +46,7 @@
                                 <rect key="frame" x="5" y="368" width="365" height="294"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEM-NE-rx4">
-                                        <rect key="frame" x="40" y="98" width="285" height="100"/>
+                                        <rect key="frame" x="40" y="97" width="285" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="0Yw-SZ-pni"/>
                                         </constraints>

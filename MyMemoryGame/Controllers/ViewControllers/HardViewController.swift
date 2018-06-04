@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HardViewController: UIViewController {
 
@@ -24,6 +25,8 @@ class HardViewController: UIViewController {
     
     private let dataModel = GameController()
     
+    var soundEffect: AVAudioPlayer = AVAudioPlayer()
+    
     var flipCount = 0 {
         didSet {
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Arial Hebrew", size: 30)!]
@@ -35,6 +38,16 @@ class HardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let soundFile = Bundle.main.path(forResource: "cardSound", ofType: ".mp3")
+        
+        do {
+            soundEffect = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: soundFile!))
+            soundEffect.prepareToPlay()
+        } catch {
+            print(error)
+        }
+        
         self.navigationController?.isNavigationBarHidden = false
 
         dataModel.delegate = self
@@ -75,12 +88,15 @@ class HardViewController: UIViewController {
     }
     
     @objc func goBack() {
+        self.soundEffect.play()
         navigationController?.popViewController(animated: true)
     }
 
     // MARK: - Actions
     
     @IBAction func startButtonTapped(_ sender: Any) {
+        
+        self.soundEffect.play()
         
         hardStartButton.isHidden = true
         restartOutlet.isEnabled = true
@@ -96,10 +112,13 @@ class HardViewController: UIViewController {
     @IBAction func restartButtonTapped(_ sender: Any) {
         
         GameController.shared.reloadGame()
+        self.soundEffect.play()
         flipCount = 0
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
+        
+        self.soundEffect.play()
         
         UIView.transition(with: sender, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
         let card = CardController.shared.cards[sender.tag - 1]
@@ -149,12 +168,14 @@ class HardViewController: UIViewController {
                     
                     alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
                         GameController.shared.reloadGame()
+                        self.soundEffect.play()
                         GameController.shared.resetTrophyOnScore()
                     }))
                     self.present(alert,animated: true)
                 }
                 
                 GameController.shared.reloadGame()
+                self.soundEffect.play()
             }))
             present(alert,animated: true)
             
@@ -177,12 +198,14 @@ class HardViewController: UIViewController {
                     
                     alert.addAction(UIAlertAction(title: GameController.shared.randomAlertActionName, style: .default, handler: { (_) in
                         GameController.shared.reloadGame()
+                        self.soundEffect.play()
                         GameController.shared.resetTrophyOnScore()
                     }))
                     self.present(alert,animated: true)
                 }
                 
                 GameController.shared.reloadGame()
+                self.soundEffect.play()
             }))
             present(alert,animated: true)
             

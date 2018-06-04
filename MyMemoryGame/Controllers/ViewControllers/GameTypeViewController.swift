@@ -8,11 +8,13 @@
 
 import UIKit
 import GameKit
+import AVFoundation
 
 class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
 
     // MARK: - Properties
     
+    var soundEffect: AVAudioPlayer = AVAudioPlayer()
     var gcEnabled = Bool()
     var gcDefaultLeaderBoard = String()
     
@@ -27,6 +29,15 @@ class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let soundFile = Bundle.main.path(forResource: "cardSound", ofType: ".mp3")
+        
+        do {
+            soundEffect = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: soundFile!))
+            soundEffect.prepareToPlay()
+        } catch {
+            print(error)
+        }
         
         self.navigationController?.isNavigationBarHidden = true
 
@@ -89,10 +100,12 @@ class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
     // MARK: - Actions
     
     @IBAction func classicGameTapped(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.gameType = 1
     }
     
     @IBAction func proGameTapped(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.gameType = 2
     }
     

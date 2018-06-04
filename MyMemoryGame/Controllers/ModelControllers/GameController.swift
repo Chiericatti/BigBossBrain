@@ -53,12 +53,12 @@ class GameController {
     var randomAlertActionName = ""
     
     var arrayOfAlertTitlesClssic = ["That's GREAT!!","WELL DONE!!","GOOD WORK!!","GREAT JOB!!","You're doing GREAT!!","WAY TO GO!!","NICE WORK!!","NICE JOB!!","WONDERFUL!!","IMPRESSIVE!!","AWESOME!!","BRAVO!!"]
-    var arrayOfAlertTitlesProfessional = ["Professional as usual!!","You are FANTASTIC!!","Don't EVER leave us!!","FIRST CLASS JOB!!","MAGNIFICENT!!","BRAVO!! BRAVO!! BRAVO!!","PERFECTION!!","AMAZING!!","UNREAL!!","You always amaze me!!","What a STAR!!","TERRIFIC!!","You're one of a kind!!","INCREDIBLE!!","You are a LEGEND!!"]
+    var arrayOfAlertTitlesProfessional = ["Professional as usual!!","You are FANTASTIC!!","Don't EVER leave us!!","FIRST CLASS JOB!!","MAGNIFICENT!!","Bravo!! Bravo!! Bravo!!","PERFECTION!!","AMAZING!!","UNREAL!!","You always amaze me!!","What a STAR!!","TERRIFIC!!","You're one of a kind!!","INCREDIBLE!!","You are a LEGEND!!"]
     
     
     var arrayOfAlertActions = ["YES","OKEY","YEA","OKEY-DOKEY","AYE AYE","ROGER","YUP","RIGHT ON","SURE THING","YESSIR"]
     
-    var arrayToBeUsedForBackImage = ["myice2-melting-1551367","mygrunge-paint-2-1615296","myultimate-free-photo-1156750","mycoton-texture-1161474","rainbow-1-1192968","orange-golden-leaf-1194347","the-blue-sphere-1197710","water-effect-1197569","falling-gras-1548881"]
+    var arrayToBeUsedForBackImage = ["myice2-melting-1551367","mygrunge-paint-2-1615296","myultimate-free-photo-1156750","mycoton-texture-1161474","rainbow-1-1192968","orange-golden-leaf-1194347","water-effect-1197569","falling-gras-1548881"]
     
     var easyDict = [
         1 : ["_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle","_bulbasaur","_charmander","_pikachu","_psyduck","_snorlax","_squirtle"],
@@ -113,7 +113,7 @@ class GameController {
         for button in arrayOfButtons {
             
             UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
-//            button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+            button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
             button.isEnabled = true
         }
     }
@@ -124,7 +124,7 @@ class GameController {
                 arrayToCompare.removeAll()
                 gameTypeOneButtonsTag.removeAll()
                 totalScoreToWin += 1
-//                print(totalScoreToWin)
+                //                print(totalScoreToWin)
             }
             else if arrayToCompare[0] != arrayToCompare[1] {
                 if gameType == 1 {
@@ -151,9 +151,11 @@ class GameController {
                     for button in arrayOfButtons2 {
                         
                         if gameTypeTwoButtonsTag.contains(button.tag) {
-                            UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
-                            button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
-                            button.isEnabled = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
+                                button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
+                                button.isEnabled = true
+                            }
                         }
                     }
                     
@@ -162,7 +164,7 @@ class GameController {
                 }
                 
                 arrayToCompare.removeAll()
-//                print(totalScoreToWin)
+                //                print(totalScoreToWin)
             }
         }
     }
@@ -387,6 +389,7 @@ class GameController {
         GameController.shared.trophy.proMedium = 0
         GameController.shared.trophy.proHard = 0
         GameController.shared.trophy.proVeryHard = 0
+        GameController.shared.justWonTrophy = 0
     }
     
     // MARK: - Game Center
@@ -401,8 +404,8 @@ class GameController {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-//                print("New Total point(s) submitted to your Leaderboard!")
-//                print("GameController Total Points:",GameController.shared.score.points)
+                print("New Total point(s) submitted to your Leaderboard!")
+                print("GameController Total Points:",GameController.shared.score.points)
             }
         }
         
@@ -418,8 +421,8 @@ class GameController {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-//                print("New Trophy submitted to your Leaderboard!")
-//                print("GameController Trophies:",GameController.shared.score.trophies)
+                print("New Trophy submitted to your Leaderboard!")
+                print("GameController Trophies:",GameController.shared.score.trophies)
             }
         }
         
@@ -435,8 +438,8 @@ class GameController {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-//                print("New Classic point submitted to your Leaderboard!")
-//                print("GameController Classic points:",GameController.shared.score.classic)
+                print("New Classic point submitted to your Leaderboard!")
+                print("GameController Classic points:",GameController.shared.score.classic)
                 
             }
         }
@@ -452,8 +455,8 @@ class GameController {
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-//                print("New Professional point submitted to your Leaderboard!")
-//                print("GameController Pro points:",GameController.shared.score.professional)
+                print("New Professional point submitted to your Leaderboard!")
+                print("GameController Pro points:",GameController.shared.score.professional)
                 
             }
         }
@@ -472,36 +475,47 @@ class GameController {
     
     // MARK: - Save to persistence
     
-    func fileURL() -> URL {
+    func fileURLScore() -> URL {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let fullURL = path.appendingPathComponent("game").appendingPathExtension("json")
+        let fullURL = path.appendingPathComponent("gameScore").appendingPathExtension("json")
+        return fullURL
+    }
+    
+    func fileURLTrophy() -> URL {
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fullURL = path.appendingPathComponent("gameTrophy").appendingPathExtension("json")
         return fullURL
     }
     
     func saveData() {
         do {
             let jsonEncoder = JSONEncoder()
-            let data = try jsonEncoder.encode(GameController.shared.score)
-            try data.write(to: fileURL())
+            let dataScore = try jsonEncoder.encode(GameController.shared.score)
+            let dataTrophy = try jsonEncoder.encode(GameController.shared.trophy)
+            try dataScore.write(to: fileURLScore())
+            try dataTrophy.write(to: fileURLTrophy())
         } catch {
             print(error)
         }
     }
     
-    func load() -> Score {
+    func load() -> (Score, Trophy) {
         let jsonDecoder = JSONDecoder()
         do {
-            let data = try Data(contentsOf: fileURL())
-            let score = try jsonDecoder.decode(Score.self, from: data)
-            return score
+            let dataScore = try Data(contentsOf: fileURLScore())
+            let dataTrophy = try Data(contentsOf: fileURLTrophy())
+            let score = try jsonDecoder.decode(Score.self, from: dataScore)
+            let trophy = try jsonDecoder.decode(Trophy.self, from: dataTrophy)
+            return (score, trophy)
         } catch {
             print(error)
         }
-        return Score(points: 0, trophies: 0, classic: 0, professional: 0)
+        return (Score(points: 0, trophies: 0, classic: 0, professional: 0),Trophy(classicEasy: 0, classicMedium: 0, classicHard: 0, classicVeryHard: 0, proEasy: 0, proMedium: 0, proHard: 0, proVeryHard: 0))
     }
     
     init() {
-        self.score = load()
+        self.score = load().0
+        self.trophy = load().1
     }
 }
 

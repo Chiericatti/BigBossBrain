@@ -8,14 +8,14 @@
 
 import UIKit
 import GameKit
+import AVFoundation
 
 class ViewController: UIViewController, GKGameCenterControllerDelegate {
 
     // MARK: - Properties
     
-//    var gcEnabled = Bool()
-//    var gcDefaultLeaderBoard = String()
-
+    var soundEffect: AVAudioPlayer = AVAudioPlayer()
+    
     // MARK: - Outlets
     
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -34,20 +34,25 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let soundFile = Bundle.main.path(forResource: "cardSound", ofType: ".mp3")
+        
+        do {
+            soundEffect = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: soundFile!))
+            soundEffect.prepareToPlay()
+        } catch {
+            print(error)
+        }
+        
         setViews()
         self.navigationController?.isNavigationBarHidden = false
-//        authenticateLocalPlayer()
-        
+//        setNavBarTitle()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
-    
-    // MARK: - Game Center
-    
-    
     
     // MARK: - Functions
     
@@ -67,8 +72,18 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
         socialMediaImage.layer.cornerRadius = 10
         addNavBarImage()
         addNavBarTwo()
-        
     }
+    
+//    func setNavBarTitle() {
+//
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 25)!]
+//
+//        if GameController.shared.gameType == 1 {
+//            self.navigationItem.title = "CLASSIC"
+//        } else if GameController.shared.gameType == 2 {
+//            self.navigationItem.title = "PROFESSIONAL"
+//        }
+//    }
     
     func addNavBarImage() {
         
@@ -100,6 +115,7 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     @objc func goBack() {
+        self.soundEffect.play()
         navigationController?.popViewController(animated: true)
     }
     // MARK: - Game Center
@@ -130,26 +146,32 @@ class ViewController: UIViewController, GKGameCenterControllerDelegate {
     // MARK: - Actions
     
     @IBAction func pokemonImages(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.imageType = 1
     }
     
     @IBAction func flagImages(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.imageType = 2
     }
     
     @IBAction func emojiImages(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.imageType = 3
     }
     
     @IBAction func socialMediaImages(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.imageType = 4
     }
     
     @IBAction func herosImage(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.imageType = 5
     }
     
     @IBAction func christmasImages(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.imageType = 6
     }
     

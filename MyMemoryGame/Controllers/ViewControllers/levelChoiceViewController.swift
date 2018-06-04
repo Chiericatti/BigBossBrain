@@ -8,9 +8,12 @@
 
 import UIKit
 import GameKit
+import AVFoundation
 
 class levelChoiceViewController: UIViewController, GKGameCenterControllerDelegate {
 
+    var soundEffect: AVAudioPlayer = AVAudioPlayer()
+    
     // MARK: - Outlets
     
     @IBOutlet weak var viewOne: UIView!
@@ -26,7 +29,18 @@ class levelChoiceViewController: UIViewController, GKGameCenterControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let soundFile = Bundle.main.path(forResource: "cardSound", ofType: ".mp3")
+        
+        do {
+            soundEffect = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: soundFile!))
+            soundEffect.prepareToPlay()
+        } catch {
+            print(error)
+        }
+        
         setButtonsAndViews()
+//        setNavBarTitle()
     }
 
     // MARK: - Functions
@@ -38,56 +52,48 @@ class levelChoiceViewController: UIViewController, GKGameCenterControllerDelegat
         viewFour.layer.cornerRadius = 15
         
         hardButton.layer.cornerRadius = 15
-//        hardButton.layer.borderColor = UIColor.black.cgColor
-//        hardButton.layer.borderWidth = 3.0
-//        easyButton.layer.cornerRadius = 15
-//        easyButton.layer.borderColor = UIColor.black.cgColor
-//        easyButton.layer.borderWidth = 3.0
-//        expertButton.layer.cornerRadius = 15
-//        expertButton.layer.borderColor = UIColor.black.cgColor
-//        expertButton.layer.borderWidth = 3.0
-//        mediumButton.layer.cornerRadius = 15
-//        mediumButton.layer.borderColor = UIColor.black.cgColor
-//        mediumButton.layer.borderWidth = 3.0
-//        
+
         addNavBarImage()
         addNavBarTwo()
+        
     }
+    
+//    func setNavBarTitle() {
+//
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 25)!]
+//
+//        if GameController.shared.gameType == 1 {
+//            self.navigationItem.title = "CLASSIC"
+//        } else if GameController.shared.gameType == 2 {
+//            self.navigationItem.title = "PROFESSIONAL"
+//        }
+//    }
 
     // MARK: - Game Center
     
     func addNavBarImage() {
-        //create a new button
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        //set image for button
-        button.setImage(UIImage(named: "icons8-leaderboard-filled-50"), for: UIControlState.normal)
-        //add function for button
-        button.addTarget(self, action: #selector(gameCenterLeaderboard), for: UIControlEvents.touchUpInside)
-        //set frame
-        //button.frame = CGRect(x: 100, y: 10, width: 10, height: 10)
         
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        button.setImage(UIImage(named: "icons8-leaderboard-filled-50"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(gameCenterLeaderboard), for: UIControlEvents.touchUpInside)
         let barButton = UIBarButtonItem(customView: button)
-        //assign button to navigationbar
+       
         self.navigationItem.rightBarButtonItem = barButton
     }
     
     func addNavBarTwo() {
-        //create a new button
-        let button: UIButton = UIButton(type: UIButtonType.custom)
-        //set image for button
-        button.setImage(UIImage(named: "icons8-left-filled-50"), for: UIControlState.normal)
-        //add function for button
-        button.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
-        //set frame
-        //button.frame = CGRect(x: 100, y: 10, width: 10, height: 10)
         
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        button.setImage(UIImage(named: "icons8-left-filled-50"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(goBack), for: UIControlEvents.touchUpInside)
         let barButton = UIBarButtonItem(customView: button)
-        //assign button to navigationbar
+   
         self.navigationItem.leftBarButtonItem = barButton
         
     }
     
     @objc func goBack() {
+        self.soundEffect.play()
         navigationController?.popViewController(animated: true)
     }
     
@@ -118,15 +124,19 @@ class levelChoiceViewController: UIViewController, GKGameCenterControllerDelegat
     // MARK: - Actions
     
     @IBAction func easyButtonTapped(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.levelMode = 1
     }
     @IBAction func mediumButtonTapped(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.levelMode = 2
     }
     @IBAction func hardButtonTapped(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.levelMode = 3
     }
     @IBAction func veryHardButtonTapped(_ sender: Any) {
+        soundEffect.play()
         GameController.shared.levelMode = 4
     }
 }

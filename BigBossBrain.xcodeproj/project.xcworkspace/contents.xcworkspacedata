@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MyMemoryGame.xcodeproj">
+      location = "self:/Users/pedrochiericatti/Desktop/MyApps/MyMemoryGame/BigBossBrain.xcodeproj">
    </FileRef>
 </Workspace>
