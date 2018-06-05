@@ -43,12 +43,6 @@ class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
 
         viewOne.layer.cornerRadius = 15
         viewTwo.layer.cornerRadius = 15
-//        classicButton.layer.cornerRadius = 15
-//        classicButton.layer.borderColor = UIColor.black.cgColor
-//        classicButton.layer.borderWidth = 4.0
-//        proButton.layer.cornerRadius = 15
-//        proButton.layer.borderColor = UIColor.black.cgColor
-//        proButton.layer.borderWidth = 4.0
         authenticateLocalPlayer()
     }
     

@@ -10,7 +10,7 @@ import UIKit
 import GameKit
 import AVFoundation
 
-class levelChoiceViewController: UIViewController, GKGameCenterControllerDelegate {
+class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate {
 
     var soundEffect: AVAudioPlayer = AVAudioPlayer()
     

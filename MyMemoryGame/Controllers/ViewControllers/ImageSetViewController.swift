@@ -10,7 +10,7 @@ import UIKit
 import GameKit
 import AVFoundation
 
-class ViewController: UIViewController, GKGameCenterControllerDelegate {
+class ImageSetViewController: UIViewController, GKGameCenterControllerDelegate {
 
     // MARK: - Properties
     

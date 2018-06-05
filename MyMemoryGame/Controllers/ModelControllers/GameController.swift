@@ -17,36 +17,34 @@ class GameController {
     
     // MARK: - Properties
     
+    static let shared = GameController()
+    
     let classicLeaderboard = "com.score.classicLeaderboard"
     let proLeaderboard = "com.score.proLeaderboard"
-    
     let trophyLeaderboard = "com.score.matchprotrophies"
     let totalPointsLeaderboad = "com.score.totalPoints"
     
     weak var delegate: DataModelDelegate?
 
-    static let shared = GameController()
-     
-    var gameTypeOneButtonsTag = [Int]()
-    var gameTypeTwoButtonsTag = [Int]()
-    
-    var justWonTrophy = 0
-    
     var allButtons: [UIButton]?
     
     var trophy = Trophy(classicEasy: 0, classicMedium: 0, classicHard: 0, classicVeryHard: 0, proEasy: 0, proMedium: 0, proHard: 0, proVeryHard: 0)
     var score = Score(points: 0, trophies: 0, classic: 0, professional: 0)
     
+    var gameTypeOneButtonsTag = [Int]()
+    var gameTypeTwoButtonsTag = [Int]()
+    
+    var arrayToCompare = [String]()
+    var arrayToBeUsed = [String]()
+    
+    var justWonTrophy = 0
     var randomCardIndex = 0
     var randomImageIndex = 0
     var totalScoreToWin = 0
-    
     var gameType = 0
     var imageType = 0
     var levelMode = 0
     
-    var arrayToCompare = [String]()
-    var arrayToBeUsed = [String]()
     
     var randomAlertTitlePro = ""
     var randomAlertTitleClassic = ""
@@ -54,7 +52,6 @@ class GameController {
     
     var arrayOfAlertTitlesClssic = ["That's GREAT!!","WELL DONE!!","GOOD WORK!!","GREAT JOB!!","You're doing GREAT!!","WAY TO GO!!","NICE WORK!!","NICE JOB!!","WONDERFUL!!","IMPRESSIVE!!","AWESOME!!","BRAVO!!"]
     var arrayOfAlertTitlesProfessional = ["Professional as usual!!","You are FANTASTIC!!","Don't EVER leave us!!","FIRST CLASS JOB!!","MAGNIFICENT!!","Bravo!! Bravo!! Bravo!!","PERFECTION!!","AMAZING!!","UNREAL!!","You always amaze me!!","What a STAR!!","TERRIFIC!!","You're one of a kind!!","INCREDIBLE!!","You are a LEGEND!!"]
-    
     
     var arrayOfAlertActions = ["YES","OKEY","YEA","OKEY-DOKEY","AYE AYE","ROGER","YUP","RIGHT ON","SURE THING","YESSIR"]
     
