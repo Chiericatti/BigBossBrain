@@ -121,7 +121,9 @@ class EasyViewController: UIViewController {
         soundEffect.play()
         
         UIView.transition(with: sender, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
+        
         let card = CardController.shared.cards[sender.tag - 1]
+        
         sender.setImage(UIImage(named: card.cardImageName), for: .normal)
         
         if GameController.shared.gameType == 1 {

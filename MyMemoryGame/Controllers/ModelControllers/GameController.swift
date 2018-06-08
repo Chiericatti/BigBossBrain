@@ -104,17 +104,17 @@ class GameController {
     // MARK: - Game Funcations
     
     func setbackOfImages() {
-        
+
         guard let arrayOfButtons =  allButtons else { return }
-        
+
         for button in arrayOfButtons {
-            
+
             UIView.transition(with: button, duration: 0.4, options: .transitionFlipFromRight, animations: nil, completion: nil)
             button.setImage(UIImage(named: self.arrayToBeUsedForBackImage[self.randomImageIndex]), for: .normal)
             button.isEnabled = true
         }
     }
-        
+    
     func compareCards() {
         if arrayToCompare.count == 2 {
             if arrayToCompare[0] == arrayToCompare[1]  {
