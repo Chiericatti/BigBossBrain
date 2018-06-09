@@ -41,7 +41,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.navigationItem.title = "FLIPS: \(0)"
         setViewCollors()
         addBackArrowImageToNavBar()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,7 +48,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         self.collectionView!.collectionViewLayout = self.getLayout()
         NewGameController.shared.loadGame()
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
