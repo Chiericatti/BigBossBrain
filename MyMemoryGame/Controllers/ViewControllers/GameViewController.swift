@@ -105,6 +105,8 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         NewGameController.shared.allCells.append(cell)
         
         cell.layer.cornerRadius = 10
+        cell.cardImage.layer.cornerRadius = 10
+        cell.cardImage.clipsToBounds = true
         
         if NewGameController.shared.gameType == 1 {
             
@@ -144,7 +146,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             NewGameController.shared.indexesOfSelectedCells.append(indexPath.item)
             
-            UIView.transition(with: collectionView.cellForItem(at: indexPath)!, duration: 0.5, options: .transitionFlipFromLeft, animations: nil)
+            UIView.transition(with: cell, duration: 0.5, options: .transitionFlipFromLeft, animations: nil)
            
 //            print("indexes in indexesOfSelectedCells: ",NewGameController.shared.indexesOfSelectedCells)
             
@@ -373,7 +375,7 @@ extension GameViewController: ScoreDataModelDelegate {
         default:
             return
         }
-        print("Data:",data)
+//        print("Data:",data)
     }
 }
 
