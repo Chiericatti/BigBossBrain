@@ -12,8 +12,6 @@ import AVFoundation
 
 class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate {
 
-    var soundEffect: AVAudioPlayer = AVAudioPlayer()
-    
     // MARK: - Outlets
     
     @IBOutlet weak var viewOne: UIView!
@@ -30,19 +28,17 @@ class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let soundFile = Bundle.main.path(forResource: "cardSound", ofType: ".mp3")
-        
-        do {
-            soundEffect = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: soundFile!))
-            soundEffect.prepareToPlay()
-        } catch {
-            print(error)
-        }
+
         
         setButtonsAndViews()
-//        setNavBarTitle()
+        
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavBarTitle()
+    }
+    
     // MARK: - Functions
     
     func setButtonsAndViews() {
@@ -58,17 +54,17 @@ class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate
         
     }
     
-//    func setNavBarTitle() {
-//
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 25)!]
-//
-//        if GameController.shared.gameType == 1 {
-//            self.navigationItem.title = "CLASSIC"
-//        } else if GameController.shared.gameType == 2 {
-//            self.navigationItem.title = "PROFESSIONAL"
-//        }
-//    }
-
+    func setNavBarTitle() {
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 25)!]
+        
+        if GameController.shared.gameType == 1 {
+            self.navigationItem.title = "CLASSIC"
+        } else if GameController.shared.gameType == 2 {
+            self.navigationItem.title = "PRO"
+        }
+    }
+    
     // MARK: - Game Center
     
     func addNavBarImage() {
@@ -93,7 +89,7 @@ class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate
     }
     
     @objc func goBack() {
-        self.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         navigationController?.popViewController(animated: true)
     }
     
@@ -124,19 +120,19 @@ class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate
     // MARK: - Actions
     
     @IBAction func easyButtonTapped(_ sender: Any) {
-        soundEffect.play()
-        GameController.shared.levelMode = 1
+        NewGameController.shared.cardSoundEffect.play()
+        NewGameController.shared.levelMode = 1
     }
     @IBAction func mediumButtonTapped(_ sender: Any) {
-        soundEffect.play()
-        GameController.shared.levelMode = 2
+        NewGameController.shared.cardSoundEffect.play()
+        NewGameController.shared.levelMode = 2
     }
     @IBAction func hardButtonTapped(_ sender: Any) {
-        soundEffect.play()
-        GameController.shared.levelMode = 3
+        NewGameController.shared.cardSoundEffect.play()
+        NewGameController.shared.levelMode = 3
     }
     @IBAction func veryHardButtonTapped(_ sender: Any) {
-        soundEffect.play()
-        GameController.shared.levelMode = 4
+        NewGameController.shared.cardSoundEffect.play()
+        NewGameController.shared.levelMode = 4
     }
 }

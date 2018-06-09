@@ -14,7 +14,6 @@ class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
 
     // MARK: - Properties
     
-    var soundEffect: AVAudioPlayer = AVAudioPlayer()
     var gcEnabled = Bool()
     var gcDefaultLeaderBoard = String()
     
@@ -30,14 +29,7 @@ class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let soundFile = Bundle.main.path(forResource: "cardSound", ofType: ".mp3")
-        
-        do {
-            soundEffect = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: soundFile!))
-            soundEffect.prepareToPlay()
-        } catch {
-            print(error)
-        }
+        NewGameController.shared.createAudio()
         
         self.navigationController?.isNavigationBarHidden = true
 
@@ -94,13 +86,15 @@ class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
     // MARK: - Actions
     
     @IBAction func classicGameTapped(_ sender: Any) {
-        soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.gameType = 1
+        NewGameController.shared.gameType = 1
     }
     
     @IBAction func proGameTapped(_ sender: Any) {
-        soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.gameType = 2
+        NewGameController.shared.gameType = 2
     }
     
 }
