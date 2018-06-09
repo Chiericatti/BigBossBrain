@@ -89,7 +89,7 @@ class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate
     }
     
     @objc func goBack() {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         navigationController?.popViewController(animated: true)
     }
     
@@ -120,19 +120,19 @@ class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate
     // MARK: - Actions
     
     @IBAction func easyButtonTapped(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         NewGameController.shared.levelMode = 1
     }
     @IBAction func mediumButtonTapped(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         NewGameController.shared.levelMode = 2
     }
     @IBAction func hardButtonTapped(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         NewGameController.shared.levelMode = 3
     }
     @IBAction func veryHardButtonTapped(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         NewGameController.shared.levelMode = 4
     }
 }

@@ -10,7 +10,6 @@ import Foundation
 
 class Card {
     
-    var isFaceUp: Bool = false
     let cardImageName: String
     
     init(cardImageName: String) {

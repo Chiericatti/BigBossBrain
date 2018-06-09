@@ -107,7 +107,7 @@ class ImageSetViewController: UIViewController, GKGameCenterControllerDelegate {
     }
     
     @objc func goBack() {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         navigationController?.popViewController(animated: true)
     }
     // MARK: - Game Center
@@ -138,37 +138,37 @@ class ImageSetViewController: UIViewController, GKGameCenterControllerDelegate {
     // MARK: - Actions
     
     @IBAction func pokemonImages(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.imageType = 1
         NewGameController.shared.imageType = 1
     }
     
     @IBAction func flagImages(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.imageType = 2
         NewGameController.shared.imageType = 2
     }
     
     @IBAction func emojiImages(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.imageType = 3
         NewGameController.shared.imageType = 3
     }
     
     @IBAction func socialMediaImages(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.imageType = 4
         NewGameController.shared.imageType = 4
     }
     
     @IBAction func herosImage(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.imageType = 5
         NewGameController.shared.imageType = 5
     }
     
     @IBAction func christmasImages(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.imageType = 6
         NewGameController.shared.imageType = 6
     }

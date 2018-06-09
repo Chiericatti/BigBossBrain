@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB1F60FD20CC6D1100E3D853 /* gameWinSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB1F60FC20CC6D1000E3D853 /* gameWinSound.mp3 */; };
+		CB1F60FF20CC6D1D00E3D853 /* trophySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB1F60FE20CC6D1C00E3D853 /* trophySound.wav */; };
 		CB215F7C20A0EE8C002241FB /* HardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB215F7B20A0EE8C002241FB /* HardViewController.swift */; };
 		CB6756E1209CEEFC0015D430 /* EasyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E0209CEEFC0015D430 /* EasyViewController.swift */; };
 		CB6756E3209CFFA60015D430 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E2209CFFA60015D430 /* DifficultyViewController.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CB1F60FC20CC6D1000E3D853 /* gameWinSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameWinSound.mp3; sourceTree = "<group>"; };
+		CB1F60FE20CC6D1C00E3D853 /* trophySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = trophySound.wav; sourceTree = "<group>"; };
 		CB215F7B20A0EE8C002241FB /* HardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardViewController.swift; sourceTree = "<group>"; };
 		CB6756E0209CEEFC0015D430 /* EasyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyViewController.swift; sourceTree = "<group>"; };
 		CB6756E2209CFFA60015D430 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			children = (
 				CBC9C2E220C73F3900CC21CE /* Default-568h@2x.png */,
 				CB6E94EE20A8F147000C2133 /* cardSound.mp3 */,
+				CB1F60FC20CC6D1000E3D853 /* gameWinSound.mp3 */,
+				CB1F60FE20CC6D1C00E3D853 /* trophySound.wav */,
 				CB9AA3F9209BB02E005FE979 /* BigBossBrain */,
 				CB9AA3F8209BB02E005FE979 /* Products */,
 				CB9BF4EE20A366AB00062BEE /* Frameworks */,
@@ -230,9 +236,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB9AA405209BB030005FE979 /* LaunchScreen.storyboard in Resources */,
+				CB1F60FF20CC6D1D00E3D853 /* trophySound.wav in Resources */,
 				CB6E94EF20A8F148000C2133 /* cardSound.mp3 in Resources */,
 				CB9AA402209BB030005FE979 /* Assets.xcassets in Resources */,
 				CB9AA400209BB02E005FE979 /* Main.storyboard in Resources */,
+				CB1F60FD20CC6D1100E3D853 /* gameWinSound.mp3 in Resources */,
 				CBC9C2E320C73F3900CC21CE /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

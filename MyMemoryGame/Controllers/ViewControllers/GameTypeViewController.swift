@@ -86,13 +86,13 @@ class GameTypeViewController: UIViewController, GKGameCenterControllerDelegate {
     // MARK: - Actions
     
     @IBAction func classicGameTapped(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.gameType = 1
         NewGameController.shared.gameType = 1
     }
     
     @IBAction func proGameTapped(_ sender: Any) {
-        NewGameController.shared.soundEffect.play()
+        NewGameController.shared.cardSoundEffect.play()
         GameController.shared.gameType = 2
         NewGameController.shared.gameType = 2
     }
