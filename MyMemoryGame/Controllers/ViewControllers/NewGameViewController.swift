@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class NewGameViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     // MARK: - Properties
     
@@ -53,6 +53,10 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NewGameController.shared.cardsReadyToUse.removeAll()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        NewGameController.shared.desableCellsForProfessionalMode()
     }
 
     // MARK: - Actions
@@ -170,7 +174,6 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-
     // MARK: - Creatting Button
     
     func addBackArrowImageToNavBar() {
@@ -338,7 +341,7 @@ class GameViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 }
 
-extension GameViewController: ScoreDataModelDelegate {
+extension NewGameViewController: ScoreDataModelDelegate {
     
     func setAlertAndBackOfCards() {
         

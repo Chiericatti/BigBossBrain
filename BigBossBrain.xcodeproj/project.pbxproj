@@ -9,14 +9,9 @@
 /* Begin PBXBuildFile section */
 		CB1F60FD20CC6D1100E3D853 /* gameWinSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB1F60FC20CC6D1000E3D853 /* gameWinSound.mp3 */; };
 		CB1F60FF20CC6D1D00E3D853 /* trophySound.wav in Resources */ = {isa = PBXBuildFile; fileRef = CB1F60FE20CC6D1C00E3D853 /* trophySound.wav */; };
-		CB215F7C20A0EE8C002241FB /* HardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB215F7B20A0EE8C002241FB /* HardViewController.swift */; };
-		CB6756E1209CEEFC0015D430 /* EasyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E0209CEEFC0015D430 /* EasyViewController.swift */; };
 		CB6756E3209CFFA60015D430 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E2209CFFA60015D430 /* DifficultyViewController.swift */; };
 		CB6756E5209D0CA00015D430 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E4209D0CA00015D430 /* Card.swift */; };
 		CB6756E7209D0D490015D430 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E6209D0D490015D430 /* CardController.swift */; };
-		CB6756E9209D3BEA0015D430 /* MediumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756E8209D3BEA0015D430 /* MediumViewController.swift */; };
-		CB6756EB209D3BF20015D430 /* VeryHardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */; };
-		CB6756F120A0B9D80015D430 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6756F020A0B9D80015D430 /* GameController.swift */; };
 		CB6E94EF20A8F148000C2133 /* cardSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = CB6E94EE20A8F147000C2133 /* cardSound.mp3 */; };
 		CB6E94F120A8F1B0000C2133 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB6E94F020A8F1B0000C2133 /* AVFoundation.framework */; };
 		CB9AA3FB209BB02E005FE979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9AA3FA209BB02E005FE979 /* AppDelegate.swift */; };
@@ -27,7 +22,7 @@
 		CB9BF4F020A366AB00062BEE /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9BF4EF20A366AB00062BEE /* GameKit.framework */; };
 		CB9BF51320A3C1FA00062BEE /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9BF51220A3C1FA00062BEE /* Score.swift */; };
 		CBC9C2E320C73F3900CC21CE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBC9C2E220C73F3900CC21CE /* Default-568h@2x.png */; };
-		CBC9C2E520C740C000CC21CE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9C2E420C740C000CC21CE /* GameViewController.swift */; };
+		CBC9C2E520C740C000CC21CE /* NewGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9C2E420C740C000CC21CE /* NewGameViewController.swift */; };
 		CBC9C2E720C75E4D00CC21CE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9C2E620C75E4D00CC21CE /* CollectionViewCell.swift */; };
 		CBC9C2E920C8472C00CC21CE /* NewGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC9C2E820C8472C00CC21CE /* NewGameController.swift */; };
 		CBCB87AB20A247B8006CEDB9 /* GameTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCB87AA20A247B8006CEDB9 /* GameTypeViewController.swift */; };
@@ -36,14 +31,9 @@
 /* Begin PBXFileReference section */
 		CB1F60FC20CC6D1000E3D853 /* gameWinSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameWinSound.mp3; sourceTree = "<group>"; };
 		CB1F60FE20CC6D1C00E3D853 /* trophySound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = trophySound.wav; sourceTree = "<group>"; };
-		CB215F7B20A0EE8C002241FB /* HardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardViewController.swift; sourceTree = "<group>"; };
-		CB6756E0209CEEFC0015D430 /* EasyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyViewController.swift; sourceTree = "<group>"; };
 		CB6756E2209CFFA60015D430 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		CB6756E4209D0CA00015D430 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		CB6756E6209D0D490015D430 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
-		CB6756E8209D3BEA0015D430 /* MediumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumViewController.swift; sourceTree = "<group>"; };
-		CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeryHardViewController.swift; sourceTree = "<group>"; };
-		CB6756F020A0B9D80015D430 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		CB6E94EE20A8F147000C2133 /* cardSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cardSound.mp3; sourceTree = "<group>"; };
 		CB6E94F020A8F1B0000C2133 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CB9AA3F7209BB02E005FE979 /* BigBossBrain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigBossBrain.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +46,7 @@
 		CB9BF4EF20A366AB00062BEE /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		CB9BF51220A3C1FA00062BEE /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		CBC9C2E220C73F3900CC21CE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		CBC9C2E420C740C000CC21CE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		CBC9C2E420C740C000CC21CE /* NewGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameViewController.swift; sourceTree = "<group>"; };
 		CBC9C2E620C75E4D00CC21CE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		CBC9C2E820C8472C00CC21CE /* NewGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewGameController.swift; path = ../../../../../../../Documents/NewGameController.swift; sourceTree = "<group>"; };
 		CBCB87AA20A247B8006CEDB9 /* GameTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTypeViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				CB6756E6209D0D490015D430 /* CardController.swift */,
-				CB6756F020A0B9D80015D430 /* GameController.swift */,
 				CBC9C2E820C8472C00CC21CE /* NewGameController.swift */,
 			);
 			path = ModelControllers;
@@ -151,11 +140,7 @@
 				CBCB87AA20A247B8006CEDB9 /* GameTypeViewController.swift */,
 				CB9AA3FC209BB02E005FE979 /* ImageSetViewController.swift */,
 				CB6756E2209CFFA60015D430 /* DifficultyViewController.swift */,
-				CB6756E0209CEEFC0015D430 /* EasyViewController.swift */,
-				CB6756E8209D3BEA0015D430 /* MediumViewController.swift */,
-				CB215F7B20A0EE8C002241FB /* HardViewController.swift */,
-				CB6756EA209D3BF20015D430 /* VeryHardViewController.swift */,
-				CBC9C2E420C740C000CC21CE /* GameViewController.swift */,
+				CBC9C2E420C740C000CC21CE /* NewGameViewController.swift */,
 				CBC9C2E620C75E4D00CC21CE /* CollectionViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -253,20 +238,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB6756E3209CFFA60015D430 /* DifficultyViewController.swift in Sources */,
-				CB6756F120A0B9D80015D430 /* GameController.swift in Sources */,
 				CBCB87AB20A247B8006CEDB9 /* GameTypeViewController.swift in Sources */,
-				CB6756EB209D3BF20015D430 /* VeryHardViewController.swift in Sources */,
-				CB215F7C20A0EE8C002241FB /* HardViewController.swift in Sources */,
 				CB6756E7209D0D490015D430 /* CardController.swift in Sources */,
 				CB9AA3FD209BB02E005FE979 /* ImageSetViewController.swift in Sources */,
 				CB6756E5209D0CA00015D430 /* Card.swift in Sources */,
 				CB9AA3FB209BB02E005FE979 /* AppDelegate.swift in Sources */,
-				CB6756E9209D3BEA0015D430 /* MediumViewController.swift in Sources */,
 				CBC9C2E720C75E4D00CC21CE /* CollectionViewCell.swift in Sources */,
 				CB9BF51320A3C1FA00062BEE /* Score.swift in Sources */,
 				CBC9C2E920C8472C00CC21CE /* NewGameController.swift in Sources */,
-				CBC9C2E520C740C000CC21CE /* GameViewController.swift in Sources */,
-				CB6756E1209CEEFC0015D430 /* EasyViewController.swift in Sources */,
+				CBC9C2E520C740C000CC21CE /* NewGameViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
