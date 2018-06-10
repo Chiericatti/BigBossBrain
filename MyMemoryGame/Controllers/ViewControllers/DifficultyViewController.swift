@@ -58,9 +58,9 @@ class DifficultyViewController: UIViewController, GKGameCenterControllerDelegate
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 25)!]
         
-        if GameController.shared.gameType == 1 {
+        if NewGameController.shared.gameType == 1 {
             self.navigationItem.title = "CLASSIC"
-        } else if GameController.shared.gameType == 2 {
+        } else if NewGameController.shared.gameType == 2 {
             self.navigationItem.title = "PRO"
         }
     }

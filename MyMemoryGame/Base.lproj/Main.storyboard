@@ -455,10 +455,10 @@
             </objects>
             <point key="canvasLocation" x="2823.1999999999998" y="116.49175412293854"/>
         </scene>
-        <!--Game View Controller-->
+        <!--New Game View Controller-->
         <scene sceneID="FQy-uY-lLA">
             <objects>
-                <viewController id="bEv-9e-ZfU" customClass="GameViewController" customModule="BigBossBrain" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bEv-9e-ZfU" customClass="NewGameViewController" customModule="BigBossBrain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PzU-eb-Xna">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -480,7 +480,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="5qI-4i-Yni" customClass="CollectionViewCell" customModule="BigBossBrain" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="10" width="62" height="65"/>
+                                                <rect key="frame" x="0.0" y="10" width="62.5" height="65"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="62.5" height="65"/>

@@ -52,9 +52,9 @@ class ImageSetViewController: UIViewController, GKGameCenterControllerDelegate {
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ArialHebrew-Bold", size: 25)!]
         
-        if GameController.shared.gameType == 1 {
+        if NewGameController.shared.gameType == 1 {
             self.navigationItem.title = "CLASSIC"
-        } else if GameController.shared.gameType == 2 {
+        } else if NewGameController.shared.gameType == 2 {
             self.navigationItem.title = "PRO"
         }
     }
@@ -139,37 +139,31 @@ class ImageSetViewController: UIViewController, GKGameCenterControllerDelegate {
     
     @IBAction func pokemonImages(_ sender: Any) {
         NewGameController.shared.cardSoundEffect.play()
-        GameController.shared.imageType = 1
         NewGameController.shared.imageType = 1
     }
     
     @IBAction func flagImages(_ sender: Any) {
         NewGameController.shared.cardSoundEffect.play()
-        GameController.shared.imageType = 2
         NewGameController.shared.imageType = 2
     }
     
     @IBAction func emojiImages(_ sender: Any) {
         NewGameController.shared.cardSoundEffect.play()
-        GameController.shared.imageType = 3
         NewGameController.shared.imageType = 3
     }
     
     @IBAction func socialMediaImages(_ sender: Any) {
         NewGameController.shared.cardSoundEffect.play()
-        GameController.shared.imageType = 4
         NewGameController.shared.imageType = 4
     }
     
     @IBAction func herosImage(_ sender: Any) {
         NewGameController.shared.cardSoundEffect.play()
-        GameController.shared.imageType = 5
         NewGameController.shared.imageType = 5
     }
     
     @IBAction func christmasImages(_ sender: Any) {
         NewGameController.shared.cardSoundEffect.play()
-        GameController.shared.imageType = 6
         NewGameController.shared.imageType = 6
     }
     
